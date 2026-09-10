@@ -1,4 +1,4 @@
-# Anfield Ticket Value & Revenue Intelligence
+# Anfield Ticket Utilization & Revenue Analysis
 
 > A revenue analytics project examining how efficiently is Anfield's limited ticket inventory being used, and what patterns in ticket access, forwarding, unused seats, pricing, and match context could help improve ticketing decisions
 
