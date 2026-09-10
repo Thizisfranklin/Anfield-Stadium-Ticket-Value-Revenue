@@ -1,512 +1,240 @@
 # Anfield Ticket Value & Revenue Intelligence
 
-> A revenue analytics project examining how seat location, opponent quality, match context, and time-to-kickoff influence secondary-market ticket prices at Liverpool FC's Anfield stadium.
+> A revenue analytics project examining how efficiently is Anfield's limited ticket inventory being used, and what patterns in ticket access, forwarding, unused seats, pricing, and match context could help improve ticketing decisions
 
-## Context
+## Project Overview
 
-**Liverpool FC** is a professional soccer club based in Liverpool, England. The club competes in the **Premier League**, the highest level of men's professional soccer in England.
+Anfield is one of the most recognizable football stadiums in the world and operates in an environment where demand for Liverpool FC tickets regularly exceeds the number of seats available.
 
-Liverpool plays its home matches at **Anfield**, a stadium divided into four major stands: the Kop, Main Stand, Sir Kenny Dalglish Stand, and Anfield Road Stand.
+At the same time, selling a ticket does not always mean that the seat is ultimately used. Tickets may be forwarded to other supporters, returned through a ticket exchange, or remain unused even after being sold. This creates an interesting problem for both the club and its supporters: **how can a stadium with limited capacity make better use of the seats it already has while balancing fan access and revenue?**
 
-For someone unfamiliar with soccer, the basic business setup is similar to ticket pricing in U.S. professional sports: the same seat can have very different market value depending on **where it is located, who the opponent is, how important the match is, and how much demand exists before kickoff**.
+I have followed Liverpool since I was around five years old, so this project combines a long-standing personal interest with my growing interest in revenue management, customer behavior, data science, and decision-making.
 
-This project investigates those differences and asks whether secondary-market pricing can reveal useful revenue opportunities.
-This project was also inspired by my own interest in Liverpool FC. As a supporter, I understood the club mostly from the football side; working on this project gives me an opportunity to understand a different side of the organization—how ticket demand, stadium structure, pricing, and supporter experience interact as business decisions.
+The project will study Liverpool's matchday ticketing system as a **capacity and revenue-management problem** rather than simply attempting to predict ticket prices.
 
+The main question is:
 
----
-
-## 1. Business Problem
-
-Football clubs cannot assume every seat or every match has the same demand.
-
-A ticket in the same section may attract very different resale prices for:
-
-* Liverpool vs. Manchester United
-* Liverpool vs. Everton
-* Liverpool vs. a lower-demand opponent
-
-Ticket value may also depend on:
-
-* stadium section
-* seating tier
-* opponent strength
-* rivalry status
-* point in the season
-* time remaining before kickoff
-* available ticket inventory
-
-The project asks:
-
-> **What drives ticket value at Anfield, and which seating sections consistently show stronger or weaker market demand than expected?**
-
-The goal is not simply to recommend higher ticket prices.
-
-A useful pricing strategy must consider both:
-
-**revenue opportunity** and **supporter accessibility**.
+> **How efficiently is Anfield's limited ticket inventory being used, and what patterns in ticket access, forwarding, unused seats, pricing, and match context could help improve ticketing decisions?**
 
 ---
 
-## 2. Core Questions
+## The Problem
 
-### A. What drives ticket value?
+Football clubs have a fixed amount of inventory for each match: the seats inside the stadium.
 
-Estimate how ticket prices vary with:
+Unlike a normal product, an unused seat after kickoff cannot be sold tomorrow. Its value for that match disappears.
 
-* stand
-* section
-* tier
-* row, when available
-* opponent
-* opponent strength
-* rivalry status
-* days to kickoff
-* ticket availability
+Liverpool also has several different groups competing for access to that limited inventory, including season-ticket holders, members, hospitality customers, away supporters, and other allocations.
 
-### B. Can we estimate expected market value?
+The problem therefore goes beyond simply asking:
 
-Build a model that estimates the expected resale price of a ticket given its seat and match characteristics.
+> How much should a ticket cost?
 
-### C. Which sections show unusual pricing gaps?
+It also includes questions such as:
 
-Compare observed resale prices with model-estimated market value.
+* How many sold tickets actually result in occupied seats?
+* How often are tickets forwarded to another supporter?
+* How effectively does the ticket exchange return unwanted tickets to the market?
+* Do utilization patterns differ depending on the opponent or competition?
+* Are high-demand matches handled differently from lower-demand matches?
+* Where might ticketing policy improve both supporter access and use of available capacity?
 
-Where face value is available:
-
-
-
-This helps identify sections with unusually strong secondary-market demand.
+The objective is not to claim that there is one perfect ticketing strategy. Instead, the project will use available data to identify patterns and highlight areas where different decisions may deserve further testing.
 
 ---
 
-## 3. Scope
+## Data
 
-### Club
+The project will combine multiple sources rather than depending on a single dataset.
 
-**Liverpool FC**
+### Liverpool FC Matchday Ticketing Data
 
-### Stadium
+Liverpool publishes information about how its ticketing system is used across seasons.
 
-**Anfield**
+This can provide measures such as:
 
-### Competition
+* tickets forwarded to other supporters,
+* tickets placed on or sold through the ticket exchange,
+* sold tickets that remained unused,
+* member access,
+* ticket allocations,
+* and other indicators of stadium utilization.
 
-**Premier League only**
+### Anfield Ticket Pricing
 
-### Time Period
+Official Liverpool FC pricing information will be used to understand how ticket prices differ across stands and ticket categories.
 
-**One completed Premier League season**
+### Match Context
 
-Preferred starting point:
+Match-level information can be added to describe the environment surrounding each fixture, including:
 
-**2025–26**
+* opponent,
+* competition,
+* date,
+* match result,
+* rivalry or match importance where appropriate,
+* and other useful match characteristics.
 
-### Unit of Analysis
-
-**Ticket listing × match**
-
-Results will ultimately be summarized at the **section level**.
-
-### Out of Scope
-
-Version 1 will not:
-
-* analyze every Premier League stadium
-* include Champions League or domestic cup matches
-* predict individual fan willingness-to-pay
-* build real-time dynamic pricing
-* recreate Anfield in 3D
-* use reinforcement learning
-* forecast Liverpool's future results
-* model individual customer behavior
+The datasets will be cleaned and connected using Python, SQL, and PostgreSQL so that ticketing behavior can be compared across matches and seasons.
 
 ---
 
-## 4. Data Sources
+## Analytical Approach
 
-### 4.1 StubHub Marketplace Data — Primary Ticket Source
+The first stage of the project will focus on understanding the ticketing system itself.
 
-The primary candidate is the **Rebrowser StubHub ticket-marketplace dataset**.
+Exploratory analysis will compare metrics such as ticket forwarding, unused seats, exchange activity, and access across different fixtures.
 
-Useful fields include:
+From there, the analysis will investigate whether those patterns change depending on match context.
 
-* event
-* listing ID
-* section
-* row
-* ticket class
-* quantity
-* resale price
-* face value
-* listing creation time
-* first/last observed time
-* listing notes
+For example:
 
-This source supports the most important part of the project:
+> Does a major Premier League fixture show different ticket utilization from an early-round cup match?
 
-**section-level resale pricing.**
+> Are more tickets forwarded for certain categories of matches?
 
-Before starting the full analysis, the first task is to confirm that enough historical Liverpool/Anfield listings are available.
+> How many tickets remain unused even when demand for access remains high?
 
-If Anfield coverage is insufficient, the project should move to another Premier League stadium with better data rather than expanding the scope.
+> How does the use of the ticket exchange vary across fixtures?
+
+Where the data supports it, statistical models may be used to estimate how match characteristics relate to ticket utilization or other measurable outcomes.
+
+The purpose of modeling will be to explain meaningful differences and support decisions rather than simply produce a prediction with the highest possible accuracy.
 
 ---
 
-### 4.2 Liverpool FC Official Sources
+## Proposed System Flow
 
-Official Liverpool information can support:
+```mermaid
+flowchart LR
 
-* Anfield seating layout
-* stand names
-* official ticket prices
-* ticket categories
-* ticketing policy
-* supporter-access considerations
+    A[Liverpool Ticketing Data] --> D[(PostgreSQL)]
+    B[Anfield Pricing Data] --> D
+    C[Match Context Data] --> D
 
-These sources provide the **primary-market context** needed to interpret resale pricing.
+    D --> E[Cleaning & Validation]
 
----
+    E --> F[Ticket Utilization Analysis]
+    E --> G[Match Context Analysis]
+    E --> H[Pricing Analysis]
 
-### 4.3 Football-Data.co.uk — Match Context
+    F --> I[Forwarding & Exchange Patterns]
+    G --> J[Fixture-Level Differences]
+    H --> K[Section / Ticket Price Context]
 
-Historical Premier League CSV data can provide:
+    I --> L[Decision Analysis]
+    J --> L
+    K --> L
 
-* match date
-* opponent
-* final score
-* match statistics
-* season
-* match week
+    L --> M[Interactive Anfield Experience]
 
-From this data, additional features can be engineered:
-
-```text
-opponent_strength
-recent_form
-league_position_before_match
-goal_difference_before_match
-rivalry_flag
-match_week
-```
-
-Only information available **before the match** should be used when constructing predictive features.
-
----
-
-### 4.4 Weather — Optional
-
-Historical weather can be added using **Open-Meteo** if it proves useful.
-
-Possible features:
-
-* temperature
-* rain
-* wind
-
-Weather is optional.
-
-If it adds little value, remove it.
-
----
-
-## 5. Data Model
-
-### `matches`
-
-```text
-match_id
-match_date
-opponent
-match_week
-opponent_strength
-recent_form
-rivalry_flag
-```
-
-### `ticket_listings`
-
-```text
-listing_id
-match_id
-section
-row
-ticket_class
-quantity
-resale_price
-face_value
-first_seen
-last_seen
-```
-
-### `sections`
-
-```text
-section
-stand
-tier
-side_or_end
-section_category
+    M --> N[Ticketing & Revenue Recommendations]
 ```
 
 ---
 
-## 6. SQL Analysis
+## Interactive Visualization
 
-SQL will be used for actual analytical questions rather than appearing only in the technology stack.
+A major part of the finished project will be an interactive visual experience rather than a collection of static charts.
 
-Planned queries:
+The proposed presentation begins from a wider geographical view and progressively moves toward the actual business problem.
 
-```text
-sql/
-├── 01_create_tables.sql
-├── 02_data_quality_checks.sql
-├── 03_section_pricing.sql
-├── 04_opponent_pricing.sql
-├── 05_resale_premiums.sql
-├── 06_time_to_kickoff.sql
-└── 07_modeling_dataset.sql
-```
+### Stage 1 — Geographic View
 
-Questions include:
+The experience begins with a map showing the United Kingdom and then transitions toward northwest England.
 
-* Which sections have the highest median resale prices?
-* Which opponents generate the largest premiums?
-* How does the same section change in value across matches?
-* How do prices change as kickoff approaches?
-* Which sections consistently trade above face value?
+The camera moves toward Liverpool and identifies the location of **Anfield** within the city.
 
----
+Nearby football infrastructure, such as Everton's stadium, may also be shown for geographical context.
 
-## 7. Feature Engineering
+The purpose is not simply decoration. It gives someone unfamiliar with Liverpool an immediate understanding of where the stadium is and places the analysis in a real environment.
 
-### Seat Features
+### Stage 2 — Liverpool to Anfield
 
-```text
-stand
-section
-tier
-row
-side_or_end
-ticket_class
-```
+The map then zooms further into the Anfield area.
 
-### Match Features
+The user can select the stadium to enter the main analytical view.
 
-```text
-opponent
-opponent_strength
-recent_form
-rivalry_flag
-match_week
-```
+This would be designed as a lightweight interactive geographic experience using tools such as **Mapbox/MapLibre, pydeck, Plotly, or a similar mapping framework**, rather than attempting to recreate a full broadcast-quality 3D animation.
 
-### Marketplace Features
+### Stage 3 — Stadium View
 
-```text
-days_to_kickoff
-listing_quantity
-available_inventory
-face_value
-resale_premium
-```
+Once Anfield is selected, the experience transitions from the geographic map into a stadium-level visualization.
+
+The stadium can be divided into its major stands, such as:
+
+* The Kop
+* Main Stand
+* Sir Kenny Dalglish Stand
+* Anfield Road Stand
+
+Depending on the data available, the visualization can show information such as official ticket-price categories or other section-level measures.
+
+A separate match panel can display fixture-level information such as:
+
+* opponent,
+* competition,
+* ticket forwarding,
+* ticket exchange activity,
+* unused sold tickets,
+* and other utilization measures.
+
+The user could change the selected match or competition and see how the information changes.
+
+The goal is to make the analysis understandable visually without requiring someone to read through a notebook or statistical output.
 
 ---
 
-## 8. Modeling Strategy
+## Important Data Boundary
 
-Keep the model stack small.
+The visualization will only display information at the level actually supported by the data.
 
-### Baseline
+For example, if Liverpool publishes the number of unused tickets for an entire match but not for individual stadium sections, the project will **not invent section-level unused-seat estimates**.
 
-**Section median price**
+Section-level graphics would show only information that can legitimately be connected to individual areas of the stadium, such as official pricing categories.
 
-A machine-learning model should beat a simple historical benchmark before additional complexity is justified.
+Match-level utilization statistics would remain clearly identified as match-level measures.
 
-### Model 1
-
-**Regression**
-
-Used for interpretability.
-
-Questions:
-
-* How much does section matter?
-* How much does opponent quality matter?
-* Does time-to-kickoff matter?
-
-### Model 2
-
-**XGBoost**
-
-Used to capture nonlinear relationships and interactions.
-
-That is enough.
-
-No model zoo.
+Maintaining that distinction is important because the goal is to create an impressive project without sacrificing analytical credibility.
 
 ---
 
-## 9. Evaluation
+## Tools
 
-Evaluate with:
+The expected core stack includes:
 
-* MAE
-* RMSE
-* \(R^2\)
+**Python · SQL · PostgreSQL · pandas · NumPy · statsmodels/scikit-learn · Plotly**
 
-Where possible, hold out entire matches rather than randomly splitting listings from the same match across train and test sets.
+For the geographic and interactive visualization:
 
-This creates a more realistic test:
+**MapLibre/Mapbox-style mapping, pydeck or Plotly**
 
-> Can the model generalize to a match it has not already seen?
+Additional tools will only be added if they improve the final analysis or presentation.
 
----
-
-## 10. Explainability
-
-Use **SHAP** to understand why predicted prices differ.
-
-Example:
-
-```text
-Predicted resale value: £125
-
-Manchester United opponent   +£28
-Main Stand                    +£19
-Lower tier                    +£13
-3 days before kickoff          +£7
-High ticket inventory         -£11
-```
-
-The objective is not only:
-
-> What will this ticket cost?
-
-but:
-
-> **Why is the market valuing this ticket differently?**
+The project is intentionally designed as a data-science project first. The interactive interface is the presentation layer for the analysis rather than the main technical objective.
 
 ---
 
-## 11. Interactive Anfield Map
+## Expected Outcome
 
-Build a simplified section-level stadium visualization.
+The completed project should provide a clearer picture of how Anfield's ticket inventory moves between initial allocation and actual matchday use.
 
-Filters:
+The final analysis should be able to identify patterns such as:
 
-* opponent
-* match
-* stand
-* tier
-* days to kickoff
+* when and where ticket utilization appears weaker,
+* how forwarding and exchange behavior changes across match types,
+* whether different competitions produce meaningfully different behavior,
+* and where ticketing policies might be tested to improve utilization.
 
-Possible displayed metrics:
+The final recommendation will focus on the balance between:
 
-* median resale price
-* predicted market value
-* resale premium
-* value gap
+**stadium utilization, supporter access, customer experience, and revenue efficiency.**
 
-The map does not need to recreate every physical seat.
+Rather than ending with a model score, the project should end with a decision-oriented question:
 
-**Section-level visualization is enough.**
+> **Given a stadium with extremely limited inventory and strong demand, what can Liverpool learn from how supporters actually use their tickets, and how could those insights help make better matchday ticketing decisions?**
 
----
-
-## 12. Executive Recommendation
-
-> Added after analysis.
-
-The final recommendation should answer:
-
-1. Which sections command the strongest resale premiums?
-2. Which opponents create the largest demand effects?
-3. How does time-to-kickoff affect price?
-4. Which sections appear consistently above or below expected market value?
-5. Where might alternative pricing strategies deserve testing?
-6. Could higher prices create supporter-accessibility concerns?
-
----
-
-## 13. Limitations
-
-Important limitations include:
-
-* resale listings are asking prices, not necessarily completed transactions
-* not every listing contains face value
-* resale customers may not represent all Liverpool supporters
-* section categories simplify differences between individual seats
-* high resale prices do not automatically mean Liverpool should raise primary ticket prices
-* rivalry classification contains some domain judgment
-
-The project will distinguish between:
-
-> **evidence of strong secondary-market demand**
-
-and
-
-> **evidence that the club should change primary pricing**
-
-Those are different claims.
-
----
-
-## 14. What I Would Test in Production
-
-If a real club wanted to act on the findings, pricing changes should be tested carefully.
-
-Potential metrics:
-
-* ticket conversion
-* sell-through rate
-* revenue per seat
-* unused seats
-* ticket-exchange activity
-* supporter complaints
-* repeat attendance
-
-The goal would be to improve revenue decisions **without unnecessarily reducing accessibility or damaging supporter experience**.
-
----
-
-## 15. Technology Stack
-
-**Data & Analysis:** Python, SQL, PostgreSQL, pandas, NumPy
-**Statistics:** statsmodels
-**Machine Learning:** scikit-learn, XGBoost
-**Explainability:** SHAP
-**Visualization:** Plotly, Matplotlib
-**Dashboard:** Streamlit or Plotly Dash
-**Development:** Git, GitHub, Jupyter, VS Code
-
----
-
-## 16. Repository Structure
-
-```text
-anfield-ticket-value-intelligence/
-│
-├── README.md
-├── data/
-│   ├── README.md
-│   ├── raw/
-│   └── processed/
-├── notebooks/
-│   ├── 01_data_validation.ipynb
-│   ├── 02_ticket_eda.ipynb
-│   ├── 03_section_analysis.ipynb
-│   ├── 04_pricing_models.ipynb
-│   └── 05_model_interpretation.ipynb
-├── sql/
-├── src/
-├── dashboard/
-├── reports/
-├── requirements.txt
-└── .gitignore
-```
-
----
+That is the problem this project aims to explore.
 
 ## 17. Results
 
