@@ -46,6 +46,9 @@ def main():
                                 '2025-26':'https://drive.google.com/file/d/10GcbSS106KbP7nbyPy-T0ONkCeqfsGMU/view',
                                 'prices':'https://www.liverpoolfc.com/tickets/lfc-ticket-prices',
                                 'access':'https://backend.liverpoolfc.com/sites/default/files/2026-03/Access_Statement_-_LATEST__March_5a6934336def9e01eeef96e550620350.pdf'})
+    from jsonschema import Draft202012Validator, FormatChecker
+    schema=json.loads((ROOT/'validation/frontend.schema.json').read_text(encoding='utf-8'))
+    Draft202012Validator(schema,format_checker=FormatChecker()).validate(artifact)
     dump(ROOT/'app/public/data/intelligence.json',artifact)
     dump(ROOT/'data/processed/summary.json',{k:v for k,v in artifact.items() if k!='fixtures'})
     plt.style.use('dark_background')

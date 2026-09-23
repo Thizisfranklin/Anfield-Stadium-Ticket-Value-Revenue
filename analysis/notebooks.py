@@ -1,9 +1,12 @@
 """Author and execute narrative notebooks; reusable computation remains in modules."""
 import json
+import os
 from pathlib import Path
 import nbformat as nbf
 from nbclient import NotebookClient
 ROOT=Path(__file__).resolve().parents[1]
+os.environ.setdefault('IPYTHONDIR',str(ROOT/'work/ipython'))
+os.environ.setdefault('JUPYTER_RUNTIME_DIR',str(ROOT/'work/jupyter'))
 SETUP="""from pathlib import Path
 import sys, json
 ROOT = Path.cwd()
