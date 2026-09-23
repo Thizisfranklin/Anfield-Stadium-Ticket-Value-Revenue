@@ -726,7 +726,9 @@ export default function Experience({ data }) {
                     Association cannot tell us whether forwarding prevented
                     empty seats. Both variables are realized matchday outcomes.
                   </p>
-                  <Evidence data={data} season="2025-26" page={10} />
+                  <Evidence data={data} season="2025-26" page={7} />
+                  <br />
+                  <Evidence data={data} season="2025-26" page={8} />
                 </div>
               )}
             </>
