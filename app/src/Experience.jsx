@@ -476,6 +476,21 @@ export default function Experience({ data }) {
                     selected={standId}
                     onSelect={setStandId}
                   />
+                  <div
+                    className="stand-selector"
+                    role="group"
+                    aria-label="Choose an Anfield stand"
+                  >
+                    {data.stands.map((s) => (
+                      <button
+                        key={s.id}
+                        onClick={() => setStandId(s.id)}
+                        aria-pressed={standId === s.id}
+                      >
+                        {s.name}
+                      </button>
+                    ))}
+                  </div>
                   <div className="stadium-caption">
                     <span>Selected stand</span>
                     <strong>{stand.name}</strong>

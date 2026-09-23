@@ -80,6 +80,16 @@ test("mobile and reduced motion remain usable", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await page.getByRole("button", { name: "Enter analysis" }).click();
+  const standButtons = page.getByRole("group", {
+    name: "Choose an Anfield stand",
+  });
+  await expect(standButtons.getByRole("button")).toHaveCount(4);
+  await standButtons
+    .getByRole("button", { name: "Anfield Road Stand", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Anfield Road Stand", exact: true }),
+  ).toBeVisible();
   await page
     .getByRole("navigation")
     .getByRole("button", { name: /Matchday/ })

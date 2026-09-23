@@ -13,7 +13,7 @@ This is a presentation pass. No analytical conclusions, input data, exported met
 | Screen | Finding and action | Final evidence |
 |---|---|---|
 | Arrival | Mobile overlay obscured the geography. Gave the map a dedicated 235px frame; retained a restrained desktop perspective. Removed the abrupt left edge of the desktop map, aligned the marker's dot (rather than the combined dot/label box) with Anfield, and shortened fly-to from 2.6 to 2.2 seconds after a 350ms delay. Reduced motion jumps directly to Anfield. Entry remains available immediately. | [Desktop](figures/arrival-desktop.png), [mobile viewport](figures/arrival-mobile.png) |
-| Stadium | Previously skipped on entry. Now chapter 01; larger stand labels and an explicit selected-stand caption reinforce interaction. Four original stand polygons remain keyboard operable with visible hover/focus/selection. The panel shows only tiers, access and dated price categories. | [Stadium](figures/stadium-desktop.png) |
+| Stadium | Previously skipped on entry. Now chapter 01; larger stand labels and an explicit selected-stand caption reinforce interaction. Full-size stand buttons provide readable labels and 48px minimum touch targets on mobile. Four original stand polygons remain keyboard operable with visible hover/focus/selection. The panel shows only tiers, access and dated price categories. | [Desktop](figures/stadium-desktop.png), [mobile](figures/stadium-mobile.png) |
 | Matchday | All bars previously looked identical and generic tooltips lacked fixture context. Selected match is amber; tooltips name opponent/date/season and identify ticket counts/source page. Added a count label and selected-match key. Mobile metrics use readable rows instead of compressed columns. | [Desktop](figures/matchday-desktop.png), [mobile](figures/matchday-mobile.png) |
 | Inventory flow | Equal cards and a loose dashed line did not clearly connect the routes. Added a labelled branch junction and connectors; mobile stacks routes along one guide. The diagram remains explicitly structural, not a measured Sankey. | [Inventory](figures/inventory-desktop.png) |
 | Match context | Scatter tooltips did not name opponents; competition figures lacked nearby citations. Added fixture-aware tooltips, count labels, league-specific weekday heading and direct PDF references beside competition means. Checked the unreported 2024–25 cup state. | [Context](figures/context-desktop.png) |
@@ -36,7 +36,7 @@ This is a presentation pass. No analytical conclusions, input data, exported met
 - **28 analytical tests passed again.** No statistical code was modified.
 - **7 Playwright tests passed** against the production build:
   1. Desktop arrival, stadium-first entry, heading focus, fixture controls, keyboard stand selection and scenario/reset behavior.
-  2. Every chapter at 390px with reduced motion and no horizontal page overflow.
+  2. Every chapter at 390px, full-size mobile stand selection, reduced motion and no horizontal page overflow.
   3. Data-fetch failure with reload recovery.
   4. Amber selected fixture, bar-to-fixture linking, opponent-aware bar/scatter tooltips, and unavailable cup evidence.
   5. Map-tile failure, readable fallback and reachable analysis.

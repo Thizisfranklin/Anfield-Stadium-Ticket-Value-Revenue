@@ -1496,3 +1496,30 @@ label {
     font-size: 0.6875rem;
   }
 }
+
+.stand-selector {
+  display: none;
+}
+@media (max-width: 760px) {
+  .stand-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 0 0 20px;
+  }
+  .stand-selector button {
+    min-height: 48px;
+    padding: 10px;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    text-align: left;
+    background: #192e38;
+    border: 1px solid #48616d;
+    border-radius: 3px;
+  }
+  .stand-selector button[aria-pressed="true"] {
+    background: #23564c;
+    border-color: #70e3c7;
+    color: #fff;
+  }
+}
