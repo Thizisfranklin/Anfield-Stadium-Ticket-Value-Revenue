@@ -1,0 +1,315 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-09-23",
+  "capacity": 61276,
+  "cup_summary": [
+    {
+      "season": "2025-26",
+      "competition": "FA Cup",
+      "unused_mean": 5556,
+      "forwarded_mean": 13220,
+      "grain": "season_competition",
+      "source": "ticketing-2025-26.pdf",
+      "source_page": 10
+    },
+    {
+      "season": "2025-26",
+      "competition": "Carabao Cup",
+      "unused_mean": 4298,
+      "forwarded_mean": 12942,
+      "grain": "season_competition",
+      "source": "ticketing-2025-26.pdf",
+      "source_page": 10
+    },
+    {
+      "season": "2025-26",
+      "competition": "Champions League",
+      "unused_mean": 2472,
+      "forwarded_mean": 12175,
+      "grain": "season_competition",
+      "source": "ticketing-2025-26.pdf",
+      "source_page": 10
+    }
+  ],
+  "member_access": [
+    {
+      "season": "2024-25",
+      "applied_pct": 50,
+      "successful_applicants_pct": 29,
+      "open_ballot_success_pct": 5,
+      "restricted_ballot_success_pct": 60,
+      "source": "ticketing-2024-25.pdf",
+      "source_page": 3
+    },
+    {
+      "season": "2025-26",
+      "applied_pct": 52,
+      "successful_applicants_pct": 34,
+      "open_ballot_success_pct": 4,
+      "restricted_ballot_success_pct": 60,
+      "source": "ticketing-2025-26.pdf",
+      "source_page": 6
+    }
+  ],
+  "exchange": {
+    "season": "2024-25",
+    "members_purchased_mean": 1240,
+    "grain": "season",
+    "source": "ticketing-2024-25.pdf",
+    "source_page": 4,
+    "note": "Mean tickets bought by members on Ticket Exchange per PL home match. No listings denominator or conversion rate published. Cup Ticket Exchange unavailable in 2025-26 (2025-26 PDF p10)."
+  },
+  "stands": [
+    {
+      "id": "kop",
+      "name": "The Kop",
+      "tiers": 1,
+      "drop_off": "Gilman Street",
+      "grain": "stand"
+    },
+    {
+      "id": "main",
+      "name": "Main Stand",
+      "tiers": 3,
+      "drop_off": "Gilman Street",
+      "grain": "stand"
+    },
+    {
+      "id": "dalglish",
+      "name": "Sir Kenny Dalglish Stand",
+      "tiers": 2,
+      "drop_off": "Oakfield Road",
+      "grain": "stand"
+    },
+    {
+      "id": "anfield-road",
+      "name": "Anfield Road Stand",
+      "tiers": 2,
+      "drop_off": "Arkles Lane / Wylva Road",
+      "grain": "stand"
+    }
+  ],
+  "season_summary": [
+    {
+      "season": "2024-25",
+      "competition": "Premier League",
+      "n": 19,
+      "unused_mean": 1465.53,
+      "unused_total": 27845,
+      "forwarded_mean": null,
+      "scope": "all_stadium_tickets",
+      "grain": "season_competition"
+    },
+    {
+      "season": "2025-26",
+      "competition": "Premier League",
+      "n": 19,
+      "unused_mean": 1516.89,
+      "unused_total": 28821,
+      "forwarded_mean": 9925.53,
+      "scope": "home_tickets",
+      "grain": "season_competition"
+    }
+  ],
+  "prices": [
+    {
+      "band": 1,
+      "stands": "Main Stand",
+      "adult_gbp": 62.75,
+      "over65_gbp": 47.0,
+      "young_adult_gbp": 31.5,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 2,
+      "stands": "Main Stand|Sir Kenny Dalglish Stand",
+      "adult_gbp": 60.75,
+      "over65_gbp": 45.5,
+      "young_adult_gbp": 30.5,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 3,
+      "stands": "Main Stand|Sir Kenny Dalglish Stand",
+      "adult_gbp": 58.75,
+      "over65_gbp": 44.0,
+      "young_adult_gbp": 29.25,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 4,
+      "stands": "Main Stand|Sir Kenny Dalglish Stand|Anfield Road Stand",
+      "adult_gbp": 56.75,
+      "over65_gbp": 42.5,
+      "young_adult_gbp": 28.25,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 5,
+      "stands": "Anfield Road Stand",
+      "adult_gbp": 51.5,
+      "over65_gbp": 38.75,
+      "young_adult_gbp": 25.75,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 6,
+      "stands": "Anfield Road Stand|Main Stand",
+      "adult_gbp": 49.5,
+      "over65_gbp": 37.0,
+      "young_adult_gbp": 24.75,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 7,
+      "stands": "Anfield Road Stand|The Kop",
+      "adult_gbp": 46.25,
+      "over65_gbp": 34.75,
+      "young_adult_gbp": 23.25,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 8,
+      "stands": "The Kop",
+      "adult_gbp": 45.25,
+      "over65_gbp": 34.0,
+      "young_adult_gbp": 22.75,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 9,
+      "stands": "The Kop",
+      "adult_gbp": 42.25,
+      "over65_gbp": 31.75,
+      "young_adult_gbp": 21.0,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 10,
+      "stands": "The Kop",
+      "adult_gbp": 40.25,
+      "over65_gbp": 30.25,
+      "young_adult_gbp": 20.0,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 11,
+      "stands": "Anfield Road Stand",
+      "adult_gbp": 30.0,
+      "over65_gbp": 30.0,
+      "young_adult_gbp": 30.0,
+      "junior_gbp": 30,
+      "season": "2026-27",
+      "grain": "price_category"
+    },
+    {
+      "band": 12,
+      "stands": "Main Stand",
+      "adult_gbp": 9.0,
+      "over65_gbp": 9.0,
+      "young_adult_gbp": 9.0,
+      "junior_gbp": 9,
+      "season": "2026-27",
+      "grain": "price_category"
+    }
+  ],
+  "policy": {
+    "before_mean": 1465.5263,
+    "after_mean": 1516.8947,
+    "absolute_change": 51.3684,
+    "relative_change_pct": 3.5051,
+    "comparable_opponents": 16,
+    "paired_mean_change": -1.625,
+    "paired_bootstrap_95": [
+      -386.13,
+      366.94
+    ],
+    "ga_st_reported_change_pct": -23,
+    "caution": "Definition-sensitive descriptive contrast: 2024-25 says all stadium tickets; 2025-26 says home tickets. Scope equivalence is unconfirmed. The bootstrap reflects opponent resampling only, not measurement uncertainty or a causal effect."
+  },
+  "model": {
+    "scores": [
+      {
+        "model": "expanding_mean",
+        "mae": 436.51,
+        "rmse": 618.21,
+        "n_test": 9
+      },
+      {
+        "model": "last_fixture",
+        "mae": 1110.11,
+        "rmse": 1197.71,
+        "n_test": 9
+      },
+      {
+        "model": "ridge_context",
+        "mae": 454.3,
+        "rmse": 652.31,
+        "n_test": 9
+      }
+    ],
+    "features": [
+      "weekend",
+      "kickoff_hour",
+      "restricted_ballot"
+    ],
+    "train_season": "2025-26",
+    "n_available": 19,
+    "interval_days_min": 5,
+    "interval_days_max": 29,
+    "decision": "Exploratory benchmark only. Nineteen irregular fixtures in a consistent target scope cannot establish annual seasonality or reliable stationarity. No ARIMA/SARIMA or operational future forecast is fitted.",
+    "validation": "Three expanding windows, 10/13/16 training fixtures, next 3 fixtures each. Fixed alpha=10; no tuning on test data. Nine unique held-out fixtures. Baselines recalculated using training only."
+  },
+  "weekday_summary": [
+    {
+      "season": "2024-25",
+      "group": "Weekday",
+      "n": 3,
+      "unused_mean": 1581.67
+    },
+    {
+      "season": "2024-25",
+      "group": "Weekend",
+      "n": 16,
+      "unused_mean": 1443.75
+    },
+    {
+      "season": "2025-26",
+      "group": "Weekday",
+      "n": 3,
+      "unused_mean": 1731.0
+    },
+    {
+      "season": "2025-26",
+      "group": "Weekend",
+      "n": 16,
+      "unused_mean": 1476.75
+    }
+  ],
+  "source_links": {
+    "2024-25": "https://drive.google.com/file/d/1eS8BnI8QpBdjSiwhaVb3Vh-vuqTFlVef/view",
+    "2025-26": "https://drive.google.com/file/d/10GcbSS106KbP7nbyPy-T0ONkCeqfsGMU/view",
+    "prices": "https://www.liverpoolfc.com/tickets/lfc-ticket-prices",
+    "access": "https://backend.liverpoolfc.com/sites/default/files/2026-03/Access_Statement_-_LATEST__March_5a6934336def9e01eeef96e550620350.pdf"
+  }
+}

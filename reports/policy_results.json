@@ -1,0 +1,14 @@
+{
+  "before_mean": 1465.5263,
+  "after_mean": 1516.8947,
+  "absolute_change": 51.3684,
+  "relative_change_pct": 3.5051,
+  "comparable_opponents": 16,
+  "paired_mean_change": -1.625,
+  "paired_bootstrap_95": [
+    -386.13,
+    366.94
+  ],
+  "ga_st_reported_change_pct": -23,
+  "caution": "Definition-sensitive descriptive contrast: 2024-25 says all stadium tickets; 2025-26 says home tickets. Scope equivalence is unconfirmed. The bootstrap reflects opponent resampling only, not measurement uncertainty or a causal effect."
+}

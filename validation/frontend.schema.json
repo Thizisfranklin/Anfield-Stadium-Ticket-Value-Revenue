@@ -1,0 +1,22 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "type":"object",
+ "required":["schema_version","capacity","fixtures","stands","prices","policy","model","cup_summary"],
+ "properties":{
+  "schema_version":{"const":"1.0"},"capacity":{"const":61276},
+  "fixtures":{"type":"array","minItems":38,"maxItems":38,"items":{
+   "type":"object","required":["id","season","opponent","date","kickoff","grain","unused_tickets","forwarded_tickets","scope","scenarios","source","source_page"],
+   "properties":{
+    "id":{"type":"string"},"season":{"enum":["2024-25","2025-26"]},"opponent":{"type":"string","minLength":1},
+    "date":{"type":"string","format":"date"},"kickoff":{"type":"string","pattern":"^[0-2][0-9]:[0-5][0-9]$"},
+    "grain":{"const":"fixture"},"unused_tickets":{"type":"integer","minimum":0,"maximum":61276},
+    "forwarded_tickets":{"type":["integer","null"],"minimum":0,"maximum":61276},
+    "scope":{"enum":["home_tickets","all_stadium_tickets"]},
+    "scenarios":{"type":"array","minItems":21,"maxItems":21,"items":{"type":"object","required":["label","additional_opportunities","recovery_percent","remaining_unused","capacity_percentage_points"],"properties":{"label":{"const":"SCENARIO — NOT OBSERVED DATA"},"recovery_percent":{"type":"integer","minimum":0,"maximum":100},"additional_opportunities":{"type":"number","minimum":0}}}}
+   }
+  }},
+  "stands":{"type":"array","minItems":4,"maxItems":4,"items":{"type":"object","additionalProperties":false,"required":["id","name","tiers","drop_off","grain"],"properties":{"id":{"type":"string"},"name":{"type":"string"},"tiers":{"type":"integer","minimum":1,"maximum":3},"drop_off":{"type":"string"},"grain":{"const":"stand"}}}},
+  "prices":{"type":"array","minItems":12,"maxItems":12,"items":{"type":"object","required":["season","grain","band","adult_gbp"],"properties":{"season":{"const":"2026-27"},"grain":{"const":"price_category"},"adult_gbp":{"type":"number","minimum":0}}}},
+  "cup_summary":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"object","required":["grain","season","competition","unused_mean","forwarded_mean"],"properties":{"grain":{"const":"season_competition"},"season":{"const":"2025-26"}}}}
+ }
+}

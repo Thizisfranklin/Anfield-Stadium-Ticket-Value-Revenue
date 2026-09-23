@@ -1,0 +1,44 @@
+[
+  {
+    "file": "ticketing-2024-25.pdf",
+    "url": "https://drive.google.com/uc?export=download&id=1eS8BnI8QpBdjSiwhaVb3Vh-vuqTFlVef",
+    "accessed_utc": "2026-09-23T17:46:17.807003+00:00",
+    "sha256": "e7006bf98b1c44e725d4b2cd4e1ecb8aa23d753529fa4cc528356c689ac5b92a",
+    "bytes": 1245244
+  },
+  {
+    "file": "ticketing-2025-26.pdf",
+    "url": "https://drive.google.com/uc?export=download&id=10GcbSS106KbP7nbyPy-T0ONkCeqfsGMU",
+    "accessed_utc": "2026-09-23T17:46:17.808991+00:00",
+    "sha256": "e279bca4605d9c7f2b6944b3e3d079b99c392a0de645bad745a88fca19a240ed",
+    "bytes": 1503738
+  },
+  {
+    "file": "fixtures-2425.csv",
+    "url": "https://www.football-data.co.uk/mmz4281/2425/E0.csv",
+    "accessed_utc": "2026-09-23T17:46:17.809987+00:00",
+    "sha256": "d0c8ce4a96d886cf60cf101f570f4a3893844226f91c7bd769eb568c49edbfa4",
+    "bytes": 197110
+  },
+  {
+    "file": "fixtures-2526.csv",
+    "url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+    "accessed_utc": "2026-09-23T17:46:17.809987+00:00",
+    "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+    "bytes": 203438
+  },
+  {
+    "file": "access-2026.pdf",
+    "url": "https://backend.liverpoolfc.com/sites/default/files/2026-03/Access_Statement_-_LATEST__March_5a6934336def9e01eeef96e550620350.pdf",
+    "accessed_utc": "2026-09-23T17:46:17.810986+00:00",
+    "sha256": "5843f7e96d3ea019e4f50d5612ebd023ea4748ac63ac6ac6777c9944ccd0f5ff",
+    "bytes": 1238156
+  },
+  {
+    "file": "prices-2026-27.webp",
+    "url": "https://contentfulproxy.stadion.io/rm6ms1yxue4m/6urmetpVhkTC2F4sUe38Bx/10f171bd080e1ebe5ba8aa93595d76c7/2026-2027_Anfield_Ticket_Prices-PL_mbm_.jpg",
+    "accessed_utc": "2026-09-23T17:46:17.812987+00:00",
+    "sha256": "73e60faee86c7da223e3197d42f37bd684909a1a273ac0b30742e30b5d547251",
+    "bytes": 610809
+  }
+]
