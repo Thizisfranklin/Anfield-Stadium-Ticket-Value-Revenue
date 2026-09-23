@@ -13,8 +13,8 @@ Local execution date: 2026-09-23. Reference environment: Windows, Python 3.12, N
 | SQL | Schema, foreign-key load and four queries executed in SQLite and PGlite PostgreSQL WASM; every output cell reconciled |
 | Native PostgreSQL | Workflow supplied via psycopg; CI provisions PostgreSQL 17. No local native PostgreSQL server was available |
 | Frontend | Production build successful; separate lazy-loaded map chunk; raw datasets excluded |
-| Browser tests | Three passed against production build: desktop interaction journey, mobile/reduced motion/no horizontal page overflow, data failure recovery |
-| Visual inspection | Arrival map, original stadium and 390px mobile matchday screenshots inspected; crowded chart labels corrected |
+| Browser tests | Seven passed against production build: desktop/mobile journeys, keyboard chapter navigation at 320px, fixture highlight/tooltips, cup empty state, map/data failure, font fallback and loading recovery |
+| Visual inspection | Arrival and all eight pages inspected at 1440px and 390px; final screenshots and page findings in PRODUCT_VISUAL_QA.md |
 | Integrity | No stand-level utilization generated; unavailable forwarding stays null; every scenario explicitly labelled; no revenue estimate |
 
 ## What was fixed during verification
@@ -28,4 +28,8 @@ Local execution date: 2026-09-23. Reference environment: Windows, Python 3.12, N
 
 ## Practical limits
 
-This is functional and visual verification, not a complete accessibility audit. Browser coverage is Chromium at 1440×1000 and 390×844, with reduced motion checked on mobile. Map and font availability can vary; no uptime claim is made. External source links were accessed during acquisition/research, but future link stability is outside this repository's control. PGlite validates PostgreSQL SQL execution, not production server performance, credentials, backups or deployment operations.
+This is functional and visual verification, not a complete accessibility audit. Browser coverage is Chromium at 1440×1000, 390×844 and 320×740, with reduced motion checked on mobile. Map and font availability can vary; no uptime claim is made. External source links were accessed during acquisition/research, but future link stability is outside this repository's control. PGlite validates PostgreSQL SQL execution, not production server performance, credentials, backups or deployment operations.
+
+## Final product pass
+
+See [PRODUCT_VISUAL_QA.md](PRODUCT_VISUAL_QA.md) for page-by-page findings, exact presentation changes and updated screenshots. The analytical code, data exports, notebooks, SQL and VERIFIED_PORTFOLIO_CLAIMS.md were unchanged by this pass; all 28 analytical regression tests passed again.

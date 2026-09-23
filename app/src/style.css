@@ -112,7 +112,7 @@ button.primary {
   inset: 0;
 }
 .arrival-map {
-  left: 25%;
+  left: 0;
 }
 .arrival-shade {
   position: absolute;
@@ -1149,4 +1149,350 @@ input[type="range"] {
   width: 100%;
   height: 100%;
   inset: 0;
+}
+/* Product QA: legible evidence, a connected reading path, and a visible mobile arrival. */
+.page-intro {
+  max-width: 780px;
+}
+.page-intro p {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+nav button {
+  font-size: 0.875rem;
+}
+.source,
+.table-alt,
+caption,
+.section-head p,
+.stand-info p,
+.metric small,
+.competition-card small,
+.stat-row small,
+.decision-list small {
+  font-size: 0.8125rem;
+}
+.source {
+  line-height: 1.65;
+}
+.section-head p {
+  max-width: 365px;
+}
+.note {
+  font-size: 0.875rem;
+}
+label {
+  font-size: 0.8125rem;
+}
+.chart-key {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: #b2c5cd;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin-top: 24px;
+}
+.selected-key::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: #edc985;
+  margin-right: 8px;
+}
+.fixture-tooltip {
+  background: #142831;
+  border: 1px solid #57727c;
+  border-radius: 5px;
+  padding: 16px;
+  box-shadow: 0 8px 28px #0006;
+  max-width: 300px;
+  font-size: 0.8125rem;
+}
+.fixture-tooltip > strong,
+.fixture-tooltip > small {
+  display: block;
+}
+.fixture-tooltip > strong {
+  font-size: 0.9375rem;
+  margin-bottom: 6px;
+}
+.fixture-tooltip p {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 12px 0;
+}
+.fixture-tooltip b {
+  color: #edf3f1;
+  font-variant-numeric: tabular-nums;
+}
+.stadium-caption {
+  border-top: 1px solid var(--line);
+  margin: 0 15px;
+  padding: 20px 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.stadium-caption > span {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--mint);
+  font-size: 0.7rem;
+}
+.stadium-caption strong {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.stadium-caption small {
+  font-size: 0.8125rem;
+}
+.stand text {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+.svg-note {
+  font-size: 10px;
+}
+.flow-row {
+  padding-bottom: 0;
+}
+.flow-junction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #adc1ca;
+  padding: 20px 0 10px;
+  font-size: 0.8125rem;
+}
+.flow-junction b {
+  color: var(--mint);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.flow-branches {
+  position: relative;
+  margin: 0 0 10px;
+}
+.flow-branches .flow-node {
+  position: relative;
+}
+.flow-branches .flow-node::before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  border-left: 1px dashed #526671;
+  top: -31px;
+  left: 50%;
+}
+.recovery-track {
+  height: 18px;
+  display: flex;
+  background: #34434a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.recovery-track span {
+  background: #edc985;
+}
+.recovery-track + .chart-key {
+  margin: 10px 0 24px;
+}
+.chapter-navigation {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.chapter-navigation > span {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.5rem;
+  color: #a4bac5;
+}
+.next-chapter {
+  text-align: left;
+  padding: 16px 20px;
+  margin-left: auto;
+  border: 1px solid #385951;
+  border-radius: 3px;
+  background: #132b29;
+  min-width: 230px;
+  font-size: 1.15rem;
+  color: #d7f1e9;
+}
+.next-chapter:hover {
+  background: #1b3c36;
+  border-color: #70cbb4;
+}
+.next-chapter small {
+  display: block;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+  color: #9ecbbd;
+}
+.next-chapter > span {
+  float: right;
+  margin-left: 22px;
+  color: var(--mint);
+}
+.analysis-footer {
+  margin-top: 28px;
+  font-size: 0.6875rem;
+}
+.map-fallback {
+  background: #0c1b24ee;
+  padding: 22px;
+  border: 1px solid #48606d;
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .arrival-map {
+    top: 74px;
+    bottom: auto;
+    height: 235px;
+    opacity: 1;
+  }
+  .arrival-shade {
+    background: linear-gradient(
+      180deg,
+      #0a141b 0,
+      #0a141b00 100px,
+      #0a141b00 220px,
+      #0a141b 320px
+    );
+    pointer-events: none;
+  }
+  .hero-copy {
+    margin: 254px 25px 36px;
+  }
+  .hero-copy h1 {
+    margin: 20px 0;
+    font-size: clamp(4.5rem, 24vw, 6rem);
+  }
+  .hero-copy h1 > span {
+    font-size: clamp(2.15rem, 11vw, 2.8rem);
+  }
+  .hero-copy .eyebrow {
+    font-size: 0.65rem;
+  }
+  .hero-stats span {
+    font-size: 0.6875rem;
+  }
+  .hero-stats {
+    gap: 20px;
+  }
+  .map-fallback {
+    top: 12%;
+    right: 8%;
+    max-width: 280px;
+    padding: 14px;
+    gap: 10px;
+  }
+  .anfield-marker {
+    font-size: 13px;
+  }
+  .page-intro p {
+    font-size: 0.9375rem;
+  }
+  .metrics {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .metrics > .metric {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3px 18px;
+    padding: 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .metric > span {
+    font-size: 0.8125rem;
+  }
+  .metrics .metric strong {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    font-size: 2.25rem;
+    margin: 0;
+    text-align: right;
+    max-width: 150px;
+  }
+  .metrics .metric small {
+    grid-column: 1;
+    font-size: 0.75rem;
+  }
+  .controls {
+    flex-wrap: wrap;
+  }
+  .controls select {
+    font-size: 0.8125rem;
+  }
+  .chart-key {
+    font-size: 0.6875rem;
+  }
+  .stand text {
+    font-size: 16px;
+  }
+  .flow-branches {
+    grid-template-columns: 1fr;
+    border-top: 0;
+    border-left: 1px dashed #526671;
+    margin-left: 9px;
+    padding: 0 0 0 18px;
+    gap: 14px;
+  }
+  .flow-branches .flow-node::before {
+    width: 18px;
+    height: 0;
+    border-left: 0;
+    border-top: 1px dashed #526671;
+    top: 50%;
+    left: -19px;
+  }
+  .flow-node small {
+    font-size: 0.8125rem;
+  }
+  .flow-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .flow-row > .flow-node {
+    width: 100%;
+  }
+  .flow-row > span {
+    transform: rotate(90deg);
+  }
+  .flow-node strong {
+    font-size: 1rem;
+  }
+  .chapter-navigation {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .chapter-navigation > .text-button {
+    margin-left: auto;
+  }
+  .next-chapter {
+    width: 100%;
+    min-width: 0;
+  }
+  .fixture-tooltip {
+    max-width: 240px;
+    padding: 12px;
+  }
+  .scenario-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+  .slider-ends {
+    font-size: 0.6875rem;
+  }
 }

@@ -50,8 +50,8 @@ Exact sold-ticket denominators, complete turnstile attendance, exchange listings
 
 The React + Vite application contains an Anfield-specific map arrival and eight connected analytical views:
 
-1. **Matchday:** season/fixture controls, published unused and forwarding values, linked chart, accessible data table.
-2. **Stadium:** original keyboard-accessible SVG; all four stands reveal verified structural and current pricing context.
+1. **Stadium:** arrival opens an original keyboard-accessible SVG; all four stands reveal verified structural and current pricing context.
+2. **Matchday:** season/fixture controls, selected-match chart highlight, fixture-specific tooltips and accessible data table.
 3. **Inventory flow:** clearly labelled process diagram, with no invented quantitative Sankey paths.
 4. **Match context:** competition means, weekday/weekend groups, retrospective forwarding scatter and distinct member-access denominators.
 5. **Policy review:** subgroup observation, raw contrasts, comparable opponents, uncertainty and confounders.
@@ -60,6 +60,8 @@ The React + Vite application contains an Anfield-specific map arrival and eight 
 8. **Decision centre:** testable operational questions and the measurements needed to answer them.
 
 Dark navy, restrained mint and red accents, condensed typography and original vectors create a sports-broadcast feel without copying a broadcaster or club interface. The map fly-to respects reduced motion; mobile navigation scrolls horizontally; charts have data-table alternatives. No club photography, crest assets, audio or game simulation is shipped.
+
+The final product pass connects the eight chapters with previous/next navigation, gives mobile arrival its own geographic frame, and separates hypothetical recovery visually from observed counts. [Page-by-page visual QA and screenshot gallery](reports/PRODUCT_VISUAL_QA.md).
 
 ## Architecture
 
@@ -134,7 +136,7 @@ pnpm preview --port 4173
 
 ## Validation and limits
 
-Executed locally: **28 analytical tests**, **six notebooks**, **four SQL queries on two engines**, **three production-browser tests**, and the **Vite production build**. Browser checks cover desktop/mobile navigation, fixture changes, keyboard stand selection, scenarios, reduced motion, overflow and a data-load failure path. Screenshots were visually inspected. See [validation report](reports/VALIDATION.md) for the precise scope; this is not a claim of full WCAG certification or exhaustive device coverage.
+Executed locally: **28 analytical tests**, **six notebooks**, **four SQL queries on two engines**, **seven production-browser tests**, and the **Vite production build**. Browser checks cover the keyboard chapter journey at 320px, desktop/mobile navigation, fixture selection and tooltips, scenarios, reduced motion, overflow, font fallback, unavailable cup data, delayed loading, and map/data failure paths. Screenshots were visually inspected. See [validation report](reports/VALIDATION.md) for the precise scope; this is not a claim of full WCAG certification or exhaustive device coverage.
 
 The sources are small, aggregate and partly definition-sensitive. Current price categories are not realized transaction prices. Cup averages have no fixture-level dispersion here. Revenue effects and policy causality cannot be identified. Map tiles/fonts need third-party availability; analytical assets have local fallbacks. No internal Liverpool data, private credentials or fictional stand metrics are used.
 

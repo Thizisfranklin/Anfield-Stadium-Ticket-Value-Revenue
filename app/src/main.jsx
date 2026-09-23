@@ -2,6 +2,15 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 const Experience = lazy(() => import("./Experience.jsx"));
+function LoadingEvidence() {
+  return (
+    <main className="load" role="status">
+      <span className="eyebrow">ANFIELD MATCHDAY INTELLIGENCE</span>
+      <h1>Opening the match files</h1>
+      <p>Loading published ticketing evidence…</p>
+    </main>
+  );
+}
 function App() {
   const [data, setData] = useState(null),
     [error, setError] = useState(false);
@@ -22,16 +31,16 @@ function App() {
     <main className="load">
       <h1>Evidence unavailable</h1>
       <p>The analysis data could not be loaded. Please reload to try again.</p>
-      <button onClick={() => location.reload()}>Reload</button>
+      <button className="primary" onClick={() => location.reload()}>
+        Reload
+      </button>
     </main>
   ) : data ? (
-    <Suspense fallback={<div className="load">Opening Anfield…</div>}>
+    <Suspense fallback={<LoadingEvidence />}>
       <Experience data={data} />
     </Suspense>
   ) : (
-    <div className="load" role="status">
-      Loading the published evidence…
-    </div>
+    <LoadingEvidence />
   );
 }
 createRoot(document.getElementById("root")).render(<App />);

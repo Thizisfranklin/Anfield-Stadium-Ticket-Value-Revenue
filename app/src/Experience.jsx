@@ -7,9 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  LineChart,
-  Line,
-  Legend,
+  Cell,
   ScatterChart,
   Scatter,
 } from "recharts";
@@ -20,8 +18,8 @@ const n = (x, d = 0) =>
     ? "Not published"
     : Number(x).toLocaleString("en-GB", { maximumFractionDigits: d });
 const tabs = [
-  "Matchday",
   "Stadium",
+  "Matchday",
   "Inventory flow",
   "Match context",
   "Policy review",
@@ -29,12 +27,50 @@ const tabs = [
   "Model evidence",
   "Decision centre",
 ];
-const tipStyle = {
-  background: "#162630",
-  border: "1px solid #45616b",
-  borderRadius: 6,
-  color: "#fff",
+const introductions = {
+  Stadium:
+    "Start with the place: four stands, finite capacity, and different routes into Anfield.",
+  Matchday:
+    "Open a match file to see how sold tickets, forwarding and unused inventory vary across the season.",
+  "Inventory flow":
+    "A ticket can change hands. The question is whether it ultimately brings a supporter through the gate.",
+  "Match context":
+    "Compare fixture settings while keeping league records, cup averages and access probabilities distinct.",
+  "Policy review":
+    "Read Every Seat, Every Game through the evidence: what changed, for whom, and what remains uncertain.",
+  "Policy lab":
+    "Explore the supporter opportunities that successful recovery of unused tickets could create.",
+  "Model evidence":
+    "Before forecasting the next match, ask whether the available history supports a useful prediction.",
+  "Decision centre":
+    "Turn the evidence into focused experiments and better measurement of supporter access.",
 };
+function FixtureTooltip({ active, payload, scatter = false }) {
+  const f = payload?.[0]?.payload;
+  if (!active || !f?.opponent) return null;
+  return (
+    <div className="fixture-tooltip">
+      <strong>Liverpool vs {f.opponent}</strong>
+      <small>
+        {f.date} · {f.season} · Premier League
+      </small>
+      <p>
+        <span>Unused sold tickets</span>
+        <b>{n(f.unused_tickets)}</b>
+      </p>
+      {scatter && (
+        <p>
+          <span>Tickets forwarded</span>
+          <b>{n(f.forwarded_tickets)}</b>
+        </p>
+      )}
+      <small>
+        LFC publication · {scatter ? "pp7–8" : `p${f.source_page}`} ·
+        fixture-level counts
+      </small>
+    </div>
+  );
+}
 function Metric({ value, label, detail }) {
   return (
     <div className="metric">
@@ -48,7 +84,7 @@ function Heading({ index, title, children }) {
   return (
     <div className="section-head">
       <div>
-        <span className="eyebrow">FIELD NOTES / {index}</span>
+        <span className="eyebrow">EVIDENCE / {index}</span>
         <h2>{title}</h2>
       </div>
       {children && <p>{children}</p>}
@@ -102,7 +138,7 @@ function ChartTable({ rows, columns, caption }) {
 }
 export default function Experience({ data }) {
   const [entered, setEntered] = useState(false),
-    [tab, setTab] = useState("Matchday"),
+    [tab, setTab] = useState("Stadium"),
     [season, setSeason] = useState("2025-26"),
     [fixtureId, setFixtureId] = useState("2025-26-16"),
     [standId, setStandId] = useState("kop"),
@@ -118,6 +154,7 @@ export default function Experience({ data }) {
     setFixtureId(data.fixtures.find((f) => f.season === s).id);
   };
   const enter = () => {
+    setTab("Stadium");
     setEntered(true);
     window.scrollTo(0, 0);
     setTimeout(() => document.getElementById("analysis-title")?.focus(), 0);
@@ -125,6 +162,13 @@ export default function Experience({ data }) {
   const chooseTab = (t) => {
     setTab(t);
     window.scrollTo({ top: 0, behavior: "instant" });
+    setTimeout(
+      () =>
+        document
+          .getElementById("analysis-title")
+          ?.focus({ preventScroll: true }),
+      0,
+    );
   };
   if (!entered)
     return (
@@ -211,9 +255,9 @@ export default function Experience({ data }) {
       <div className="workspace">
         <aside>
           <div className="side-title">
-            THE MATCHDAY
+            ANFIELD / THE EVIDENCE
             <br />
-            <b>INTELLIGENCE ROOM</b>
+            <b>From seat to supporter</b>
           </div>
           <nav aria-label="Analysis sections">
             {tabs.map((t, i) => (
@@ -250,15 +294,13 @@ export default function Experience({ data }) {
         <main id="content">
           <div className="page-intro">
             <div className="eyebrow">
-              TICKET UTILIZATION · FAN ACCESS · REVENUE ANALYTICS
+              CHAPTER {String(tabs.indexOf(tab) + 1).padStart(2, "0")} / 08 ·
+              ANFIELD
             </div>
             <h1 id="analysis-title" tabIndex="-1">
               {tab}
             </h1>
-            <p>
-              How can scarce matchday inventory create more opportunities for
-              supporters?
-            </p>
+            <p>{introductions[tab]}</p>
           </div>
           {["Matchday", "Policy lab", "Match context"].includes(tab) && (
             <div className="controls">
@@ -342,12 +384,16 @@ export default function Experience({ data }) {
               </div>
               <div className="panel">
                 <Heading
-                  index="01"
+                  index="02"
                   title="Every fixture tells a different story"
                 >
                   Select a bar to open that match file. Counts represent
                   published unused sold tickets.
                 </Heading>
+                <div className="chart-key">
+                  <span>Unused sold tickets · count</span>
+                  <span className="selected-key">Selected match</span>
+                </div>
                 <div className="chart">
                   <ResponsiveContainer>
                     <BarChart
@@ -373,13 +419,24 @@ export default function Experience({ data }) {
                         height={80}
                       />
                       <YAxis tick={{ fill: "#a6b9c0", fontSize: 12 }} />
-                      <Tooltip contentStyle={tipStyle} />
+                      <Tooltip
+                        content={<FixtureTooltip />}
+                        cursor={{ fill: "#ffffff08" }}
+                      />
                       <Bar
                         dataKey="unused_tickets"
                         name="Unused tickets"
                         fill="#55d7bd"
                         radius={[3, 3, 0, 0]}
-                      />
+                        isAnimationActive={false}
+                      >
+                        {fixtures.map((f) => (
+                          <Cell
+                            key={f.id}
+                            fill={f.id === fixture.id ? "#edc985" : "#55d7bd"}
+                          />
+                        ))}
+                      </Bar>
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -408,7 +465,7 @@ export default function Experience({ data }) {
           )}
           {tab === "Stadium" && (
             <>
-              <Heading index="02" title="Four stands. One Anfield.">
+              <Heading index="01" title="Four stands. One Anfield.">
                 Select a stand with your pointer, or tab to it and press Enter.
                 Price categories are current 2026–27 context.
               </Heading>
@@ -419,6 +476,11 @@ export default function Experience({ data }) {
                     selected={standId}
                     onSelect={setStandId}
                   />
+                  <div className="stadium-caption">
+                    <span>Selected stand</span>
+                    <strong>{stand.name}</strong>
+                    <small>Structure &amp; current price context only</small>
+                  </div>
                 </div>
                 <section className="panel stand-info" aria-live="polite">
                   <span className="eyebrow">STAND / VERIFIED CONTEXT</span>
@@ -488,10 +550,7 @@ export default function Experience({ data }) {
           )}
           {tab === "Inventory flow" && (
             <>
-              <Heading
-                index="03"
-                title="Follow the ticket, not an invented flow"
-              >
+              <Heading index="03" title="From allocation to arrival">
                 A process diagram. Connections explain possible routes; widths
                 do not represent quantities.
               </Heading>
@@ -506,6 +565,10 @@ export default function Experience({ data }) {
                     Initial allocation<strong>Ticket purchaser</strong>
                     <small>Season tickets · members · other groups</small>
                   </div>
+                </div>
+                <div className="flow-junction">
+                  <span>Possible routes after purchase</span>
+                  <b aria-hidden="true">↓</b>
                 </div>
                 <div className="flow-branches">
                   <div className="flow-node">
@@ -619,6 +682,17 @@ export default function Experience({ data }) {
                       </div>
                     ))}
                 </div>
+                <Evidence
+                  data={data}
+                  season={season}
+                  page={season === "2025-26" ? 7 : 5}
+                />
+                {season === "2025-26" && (
+                  <>
+                    <br />
+                    <Evidence data={data} season={season} page={10} />
+                  </>
+                )}
                 {season === "2024-25" &&
                   competition !== "All competitions" &&
                   competition !== "Premier League" && (
@@ -627,7 +701,7 @@ export default function Experience({ data }) {
               </div>
               <div className="two-col">
                 <div className="panel">
-                  <h3>Weekday / weekend</h3>
+                  <h3>League fixtures · weekday / weekend</h3>
                   {data.weekday_summary
                     .filter((x) => x.season === season)
                     .map((x) => (
@@ -677,6 +751,10 @@ export default function Experience({ data }) {
               {season === "2025-26" && (
                 <div className="panel">
                   <h3>Forwarding and unused tickets</h3>
+                  <div className="chart-key">
+                    <span>Unused sold tickets · count</span>
+                    <span>Each point is one league fixture</span>
+                  </div>
                   <div className="chart">
                     <ResponsiveContainer>
                       <ScatterChart
@@ -702,13 +780,14 @@ export default function Experience({ data }) {
                           tick={{ fill: "#a6b9c0" }}
                         />
                         <Tooltip
-                          contentStyle={tipStyle}
+                          content={<FixtureTooltip scatter />}
                           cursor={{ strokeDasharray: "3 3" }}
                         />
                         <Scatter
                           data={fixtures}
                           fill="#55d7bd"
                           name="League fixtures"
+                          isAnimationActive={false}
                         />
                       </ScatterChart>
                     </ResponsiveContainer>
@@ -837,8 +916,8 @@ export default function Experience({ data }) {
                 index="06"
                 title="What if more tickets found a supporter?"
               >
-                An access scenario for the selected fixture. Every outcome below
-                is calculated in Python and exported for exploration.
+                An access scenario for the selected fixture. Change the recovery
+                assumption to explore a hypothetical outcome.
               </Heading>
               <div className="scenario-label">SCENARIO — NOT OBSERVED DATA</div>
               <div className="panel scenario-panel">
@@ -881,6 +960,19 @@ export default function Experience({ data }) {
                     label="Share of physical capacity recovered"
                     detail="Not a measured utilization increase"
                   />
+                </div>
+                <div
+                  className="recovery-track"
+                  role="img"
+                  aria-label={`Scenario: ${recovery}% successfully recovered; ${100 - recovery}% remaining unused`}
+                >
+                  <span style={{ width: `${recovery}%` }} />
+                </div>
+                <div className="chart-key">
+                  <span className="selected-key">
+                    Assumed recovered &amp; used
+                  </span>
+                  <span>Remaining unused</span>
                 </div>
                 <button className="text-button" onClick={() => setRecovery(25)}>
                   Reset assumption to 25%
@@ -1064,6 +1156,37 @@ export default function Experience({ data }) {
               </div>
             </>
           )}
+          <div
+            className="chapter-navigation"
+            aria-label="Continue the evidence story"
+          >
+            <span>{String(tabs.indexOf(tab) + 1).padStart(2, "0")} / 08</span>
+            {tabs.indexOf(tab) > 0 && (
+              <button
+                className="text-button"
+                onClick={() => chooseTab(tabs[tabs.indexOf(tab) - 1])}
+              >
+                ← Previous chapter
+              </button>
+            )}
+            {tabs.indexOf(tab) < tabs.length - 1 ? (
+              <button
+                className="next-chapter"
+                onClick={() => chooseTab(tabs[tabs.indexOf(tab) + 1])}
+              >
+                <small>CONTINUE THE STORY</small>
+                {tabs[tabs.indexOf(tab) + 1]} <span aria-hidden="true">→</span>
+              </button>
+            ) : (
+              <button
+                className="next-chapter"
+                onClick={() => chooseTab("Stadium")}
+              >
+                <small>RETURN TO THE START</small>Explore Anfield again{" "}
+                <span aria-hidden="true">↗</span>
+              </button>
+            )}
+          </div>
           <footer className="analysis-footer">
             <span>ANFIELD MATCHDAY INTELLIGENCE</span>
             <span>

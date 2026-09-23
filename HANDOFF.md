@@ -61,7 +61,7 @@ No ARIMA/SARIMA or exponential-smoothing time-series model was forced into the p
 
 ## 10. Application walkthrough
 
-Open the local preview or eventual static URL. The short map sequence centers Anfield; **Enter analysis** opens Matchday. Change the season and fixture, or select a chart bar. The unused/capacity ratio is explicitly labelled as context. Open Stadium and select each of the four stands with a pointer or keyboard. Review Inventory flow for the ticket routes, Match context for aggregate comparisons, and Policy review for limitations. In Policy lab change the recovery assumption; every output is a labelled scenario. Model evidence explains benchmark performance; Decision centre ends with experiments and measurement needs. The AMI header returns to arrival.
+Open the local preview or eventual static URL. The short map sequence centers Anfield; **Enter analysis** opens Stadium. Select each of the four stands with a pointer or keyboard, then use **Continue the story → Matchday**. Change the season and fixture, or select a chart bar; the selected fixture turns amber and tooltips identify each match. The unused/capacity ratio is explicitly labelled as context. Review Inventory flow for the ticket routes, Match context for aggregate comparisons, and Policy review for limitations. In Policy lab change the recovery assumption; every output is a labelled scenario. Model evidence explains benchmark performance; Decision centre ends with experiments and measurement needs. The AMI header returns to arrival. Chapter controls move focus to the new heading. The mobile map has a dedicated frame; the normal fly-to lasts 2.2 seconds after a 350ms settling delay and is skipped for reduced motion. [Final visual QA and screenshots](reports/PRODUCT_VISUAL_QA.md) records the polish pass.
 
 ## 11. Visual design decisions
 
@@ -82,7 +82,7 @@ Original dark navy surfaces, mint data accents, restrained red map marker, conde
 
 ## 13. Tests performed
 
-28 Python tests passed; all six notebooks executed; four SQL queries matched cell by cell across SQLite and PostgreSQL WASM; Vite production build passed; three Playwright production-browser tests passed. Desktop (1440×1000) and mobile (390×844) were inspected. Browser tests cover navigation, season/fixture updates, keyboard stand selection, scenario control/reset, reduced motion, horizontal overflow and data-load recovery. [Validation record](reports/VALIDATION.md) lists fixes and scope.
+28 Python tests passed; all six notebooks executed; four SQL queries matched cell by cell across SQLite and PostgreSQL WASM; Vite production build passed; seven Playwright production-browser tests passed. Every chapter was visually inspected at desktop (1440×1000) and mobile (390×844); 320px keyboard navigation and font fallback also passed. Browser tests cover navigation, season/fixture updates, keyboard stand selection, scenario control/reset, reduced motion, horizontal overflow, meaningful tooltips, unavailable cup data, loading status, map failure and data-load recovery. [Validation record](reports/VALIDATION.md) lists fixes and scope.
 
 ## 14. Reproduction steps
 
