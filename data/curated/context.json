@@ -1,0 +1,19 @@
+{
+  "capacity": 61276,
+  "cup_summary": [
+    {"season":"2025-26","competition":"FA Cup","unused_mean":5556,"forwarded_mean":13220,"grain":"season_competition","source":"ticketing-2025-26.pdf","source_page":10},
+    {"season":"2025-26","competition":"Carabao Cup","unused_mean":4298,"forwarded_mean":12942,"grain":"season_competition","source":"ticketing-2025-26.pdf","source_page":10},
+    {"season":"2025-26","competition":"Champions League","unused_mean":2472,"forwarded_mean":12175,"grain":"season_competition","source":"ticketing-2025-26.pdf","source_page":10}
+  ],
+  "member_access": [
+    {"season":"2024-25","applied_pct":50,"successful_applicants_pct":29,"open_ballot_success_pct":5,"restricted_ballot_success_pct":60,"source":"ticketing-2024-25.pdf","source_page":3},
+    {"season":"2025-26","applied_pct":52,"successful_applicants_pct":34,"open_ballot_success_pct":4,"restricted_ballot_success_pct":60,"source":"ticketing-2025-26.pdf","source_page":6}
+  ],
+  "exchange": {"season":"2024-25","members_purchased_mean":1240,"grain":"season","source":"ticketing-2024-25.pdf","source_page":4,"note":"Mean tickets bought by members on Ticket Exchange per PL home match. No listings denominator or conversion rate published. Cup Ticket Exchange unavailable in 2025-26 (2025-26 PDF p10)."},
+  "stands": [
+    {"id":"kop","name":"The Kop","tiers":1,"drop_off":"Gilman Street","grain":"stand"},
+    {"id":"main","name":"Main Stand","tiers":3,"drop_off":"Gilman Street","grain":"stand"},
+    {"id":"dalglish","name":"Sir Kenny Dalglish Stand","tiers":2,"drop_off":"Oakfield Road","grain":"stand"},
+    {"id":"anfield-road","name":"Anfield Road Stand","tiers":2,"drop_off":"Arkles Lane / Wylva Road","grain":"stand"}
+  ]
+}

@@ -1,0 +1,61 @@
+name: Validate analytics and application
+on:
+  pull_request:
+  push:
+    branches: [main, implementation/anfield-matchday-intelligence]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: anfield
+          POSTGRES_PASSWORD: local_ci_only
+          POSTGRES_DB: anfield
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U anfield"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m analysis.acquire
+      - run: python -m analysis.pipeline
+      - run: python -m pytest -q
+      - run: python -m analysis.notebooks
+      - name: Execute native PostgreSQL workflow
+        env:
+          DATABASE_URL: postgresql://anfield:local_ci_only@localhost:5432/anfield
+        run: python -m analysis.database
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '11.19.0'
+      - run: pnpm install --frozen-lockfile
+        working-directory: app
+      - run: pnpm build && pnpm test:postgres
+        working-directory: app
+      - run: node node_modules/@playwright/test/cli.js install --with-deps chromium
+        working-directory: app
+      - run: pnpm test
+        working-directory: app
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-evidence
+          path: |
+            reports/
+            notebooks/
+            app/test-results/
+            app/dist/

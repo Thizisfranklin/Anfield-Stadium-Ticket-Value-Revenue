@@ -1,0 +1,39 @@
+id,season,opponent,competition,unused_tickets,forwarded_tickets,grain,scope,source,source_page,forwarding_source_page,unused_capacity_pct,date,kickoff,weekend,weekday,kickoff_hour,restricted_ballot
+2024-25-01,2024-25,Brentford,Premier League,2262,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,3.6915,2024-08-25,16:30,True,Sunday,16.5,False
+2024-25-02,2024-25,Nottingham Forest,Premier League,1679,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,2.7401,2024-09-14,15:00,True,Saturday,15.0,False
+2024-25-03,2024-25,Bournemouth,Premier League,2352,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,3.8384,2024-09-21,15:00,True,Saturday,15.0,False
+2024-25-04,2024-25,Chelsea,Premier League,1433,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,2.3386,2024-10-20,16:30,True,Sunday,16.5,True
+2024-25-05,2024-25,Brighton,Premier League,1702,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,2.7776,2024-11-02,15:00,True,Saturday,15.0,False
+2024-25-06,2024-25,Aston Villa,Premier League,1373,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,2.2407,2024-11-09,20:00,True,Saturday,20.0,False
+2024-25-07,2024-25,Manchester City,Premier League,948,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.5471,2024-12-01,16:00,True,Sunday,16.0,True
+2024-25-08,2024-25,Fulham,Premier League,1911,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,3.1187,2024-12-14,15:00,True,Saturday,15.0,False
+2024-25-09,2024-25,Leicester,Premier League,2793,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,4.5581,2024-12-26,20:00,False,Thursday,20.0,False
+2024-25-10,2024-25,Manchester United,Premier League,1977,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,3.2264,2025-01-05,16:30,True,Sunday,16.5,True
+2024-25-11,2024-25,Ipswich,Premier League,1201,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.96,2025-01-25,15:00,True,Saturday,15.0,False
+2024-25-12,2024-25,Wolves,Premier League,1208,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.9714,2025-02-16,14:00,True,Sunday,14.0,False
+2024-25-13,2024-25,Newcastle United,Premier League,1189,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.9404,2025-02-26,20:15,False,Wednesday,20.25,False
+2024-25-14,2024-25,Southampton,Premier League,925,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.5096,2025-03-08,15:00,True,Saturday,15.0,False
+2024-25-15,2024-25,Everton,Premier League,763,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.2452,2025-04-02,20:00,False,Wednesday,20.0,True
+2024-25-16,2024-25,West Ham United,Premier League,1151,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.8784,2025-04-13,14:00,True,Sunday,14.0,False
+2024-25-17,2024-25,Tottenham Hotspur,Premier League,1037,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.6923,2025-04-27,16:30,True,Sunday,16.5,True
+2024-25-18,2024-25,Arsenal,Premier League,1186,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.9355,2025-05-11,16:30,True,Sunday,16.5,True
+2024-25-19,2024-25,Crystal Palace,Premier League,755,,fixture,all_stadium_tickets,ticketing-2024-25.pdf,5,,1.2321,2025-05-25,16:00,True,Sunday,16.0,True
+2025-26-01,2025-26,Bournemouth,Premier League,927,9366.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,1.5128,2025-08-15,20:00,False,Friday,20.0,False
+2025-26-02,2025-26,Arsenal,Premier League,626,8819.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,1.0216,2025-08-31,16:30,True,Sunday,16.5,True
+2025-26-03,2025-26,Everton,Premier League,711,9215.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,1.1603,2025-09-20,12:30,True,Saturday,12.5,True
+2025-26-04,2025-26,Manchester United,Premier League,569,8744.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,0.9286,2025-10-19,16:30,True,Sunday,16.5,True
+2025-26-05,2025-26,Aston Villa,Premier League,1811,10958.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.9555,2025-11-01,20:00,True,Saturday,20.0,False
+2025-26-06,2025-26,Nottingham Forest,Premier League,1309,10254.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.1362,2025-11-22,15:00,True,Saturday,15.0,False
+2025-26-07,2025-26,Sunderland,Premier League,2119,10565.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,3.4581,2025-12-03,20:15,False,Wednesday,20.25,False
+2025-26-08,2025-26,Brighton,Premier League,2070,9816.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,3.3782,2025-12-13,15:00,True,Saturday,15.0,False
+2025-26-09,2025-26,Wolves,Premier League,1377,10352.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.2472,2025-12-27,15:00,True,Saturday,15.0,False
+2025-26-10,2025-26,Leeds,Premier League,2147,11172.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,3.5038,2026-01-01,17:30,False,Thursday,17.5,False
+2025-26-11,2025-26,Burnley,Premier League,1655,9912.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.7009,2026-01-17,15:00,True,Saturday,15.0,False
+2025-26-12,2025-26,Newcastle United,Premier League,1367,10688.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.2309,2026-01-31,20:00,True,Saturday,20.0,False
+2025-26-13,2025-26,Manchester City,Premier League,867,9305.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,1.4149,2026-02-08,16:30,True,Sunday,16.5,True
+2025-26-14,2025-26,West Ham United,Premier League,1408,10343.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.2978,2026-02-28,15:00,True,Saturday,15.0,False
+2025-26-15,2025-26,Tottenham Hotspur,Premier League,2195,9656.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,3.5822,2026-03-15,16:30,True,Sunday,16.5,True
+2025-26-16,2025-26,Fulham,Premier League,2820,10452.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,4.6021,2026-04-11,17:30,True,Saturday,17.5,False
+2025-26-17,2025-26,Crystal Palace,Premier League,1901,10159.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,3.1024,2026-04-25,15:00,True,Saturday,15.0,False
+2025-26-18,2025-26,Chelsea,Premier League,1654,9799.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.6993,2026-05-09,12:30,True,Saturday,12.5,True
+2025-26-19,2025-26,Brentford,Premier League,1288,9010.0,fixture,home_tickets,ticketing-2025-26.pdf,7,8.0,2.102,2026-05-24,16:00,True,Sunday,16.0,True

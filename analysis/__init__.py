@@ -1,0 +1,1 @@
+"""Reproducible Anfield ticketing analysis."""

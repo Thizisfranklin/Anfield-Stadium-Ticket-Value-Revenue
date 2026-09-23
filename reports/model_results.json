@@ -1,0 +1,33 @@
+{
+  "scores": [
+    {
+      "model": "expanding_mean",
+      "mae": 436.51,
+      "rmse": 618.21,
+      "n_test": 9
+    },
+    {
+      "model": "last_fixture",
+      "mae": 1110.11,
+      "rmse": 1197.71,
+      "n_test": 9
+    },
+    {
+      "model": "ridge_context",
+      "mae": 454.3,
+      "rmse": 652.31,
+      "n_test": 9
+    }
+  ],
+  "features": [
+    "weekend",
+    "kickoff_hour",
+    "restricted_ballot"
+  ],
+  "train_season": "2025-26",
+  "n_available": 19,
+  "interval_days_min": 5,
+  "interval_days_max": 29,
+  "decision": "Exploratory benchmark only. Nineteen irregular fixtures in a consistent target scope cannot establish annual seasonality or reliable stationarity. No ARIMA/SARIMA or operational future forecast is fitted.",
+  "validation": "Three expanding windows, 10/13/16 training fixtures, next 3 fixtures each. Fixed alpha=10; no tuning on test data. Nine unique held-out fixtures. Baselines recalculated using training only."
+}

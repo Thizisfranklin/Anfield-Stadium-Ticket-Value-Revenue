@@ -1,0 +1,379 @@
+{
+  "engine": {
+    "version": "PostgreSQL 17.5 on aarch64-unknown-linux-gnu, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit"
+  },
+  "queries": [
+    [
+      {
+        "season": "2024-25",
+        "competition": "Premier League",
+        "scope": "all_stadium_tickets",
+        "fixtures": 19,
+        "mean_unused": "1465.5263157894736842",
+        "mean_forwarded": null,
+        "unused_capacity_pct": "2.3916807816918103"
+      },
+      {
+        "season": "2025-26",
+        "competition": "Premier League",
+        "scope": "home_tickets",
+        "fixtures": 19,
+        "mean_unused": "1516.8947368421052632",
+        "mean_forwarded": "9925.5263157894736842",
+        "unused_capacity_pct": "2.47551200607432806204"
+      }
+    ],
+    [
+      {
+        "season": "2024-25",
+        "opponent": "Leicester",
+        "unused_tickets": 2793,
+        "unused_rank": 1
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Bournemouth",
+        "unused_tickets": 2352,
+        "unused_rank": 2
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Brentford",
+        "unused_tickets": 2262,
+        "unused_rank": 3
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Manchester United",
+        "unused_tickets": 1977,
+        "unused_rank": 4
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Fulham",
+        "unused_tickets": 1911,
+        "unused_rank": 5
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Brighton",
+        "unused_tickets": 1702,
+        "unused_rank": 6
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Nottingham Forest",
+        "unused_tickets": 1679,
+        "unused_rank": 7
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Chelsea",
+        "unused_tickets": 1433,
+        "unused_rank": 8
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Aston Villa",
+        "unused_tickets": 1373,
+        "unused_rank": 9
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Wolves",
+        "unused_tickets": 1208,
+        "unused_rank": 10
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Ipswich",
+        "unused_tickets": 1201,
+        "unused_rank": 11
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Newcastle United",
+        "unused_tickets": 1189,
+        "unused_rank": 12
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Arsenal",
+        "unused_tickets": 1186,
+        "unused_rank": 13
+      },
+      {
+        "season": "2024-25",
+        "opponent": "West Ham United",
+        "unused_tickets": 1151,
+        "unused_rank": 14
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Tottenham Hotspur",
+        "unused_tickets": 1037,
+        "unused_rank": 15
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Manchester City",
+        "unused_tickets": 948,
+        "unused_rank": 16
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Southampton",
+        "unused_tickets": 925,
+        "unused_rank": 17
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Everton",
+        "unused_tickets": 763,
+        "unused_rank": 18
+      },
+      {
+        "season": "2024-25",
+        "opponent": "Crystal Palace",
+        "unused_tickets": 755,
+        "unused_rank": 19
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Fulham",
+        "unused_tickets": 2820,
+        "unused_rank": 1
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Tottenham Hotspur",
+        "unused_tickets": 2195,
+        "unused_rank": 2
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Leeds",
+        "unused_tickets": 2147,
+        "unused_rank": 3
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Sunderland",
+        "unused_tickets": 2119,
+        "unused_rank": 4
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Brighton",
+        "unused_tickets": 2070,
+        "unused_rank": 5
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Crystal Palace",
+        "unused_tickets": 1901,
+        "unused_rank": 6
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Aston Villa",
+        "unused_tickets": 1811,
+        "unused_rank": 7
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Burnley",
+        "unused_tickets": 1655,
+        "unused_rank": 8
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Chelsea",
+        "unused_tickets": 1654,
+        "unused_rank": 9
+      },
+      {
+        "season": "2025-26",
+        "opponent": "West Ham United",
+        "unused_tickets": 1408,
+        "unused_rank": 10
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Wolves",
+        "unused_tickets": 1377,
+        "unused_rank": 11
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Newcastle United",
+        "unused_tickets": 1367,
+        "unused_rank": 12
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Nottingham Forest",
+        "unused_tickets": 1309,
+        "unused_rank": 13
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Brentford",
+        "unused_tickets": 1288,
+        "unused_rank": 14
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Bournemouth",
+        "unused_tickets": 927,
+        "unused_rank": 15
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Manchester City",
+        "unused_tickets": 867,
+        "unused_rank": 16
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Everton",
+        "unused_tickets": 711,
+        "unused_rank": 17
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Arsenal",
+        "unused_tickets": 626,
+        "unused_rank": 18
+      },
+      {
+        "season": "2025-26",
+        "opponent": "Manchester United",
+        "unused_tickets": 569,
+        "unused_rank": 19
+      }
+    ],
+    [
+      {
+        "opponent": "Tottenham Hotspur",
+        "before_unused": 1037,
+        "after_unused": 2195,
+        "difference": 1158
+      },
+      {
+        "opponent": "Crystal Palace",
+        "before_unused": 755,
+        "after_unused": 1901,
+        "difference": 1146
+      },
+      {
+        "opponent": "Fulham",
+        "before_unused": 1911,
+        "after_unused": 2820,
+        "difference": 909
+      },
+      {
+        "opponent": "Aston Villa",
+        "before_unused": 1373,
+        "after_unused": 1811,
+        "difference": 438
+      },
+      {
+        "opponent": "Brighton",
+        "before_unused": 1702,
+        "after_unused": 2070,
+        "difference": 368
+      },
+      {
+        "opponent": "West Ham United",
+        "before_unused": 1151,
+        "after_unused": 1408,
+        "difference": 257
+      },
+      {
+        "opponent": "Chelsea",
+        "before_unused": 1433,
+        "after_unused": 1654,
+        "difference": 221
+      },
+      {
+        "opponent": "Newcastle United",
+        "before_unused": 1189,
+        "after_unused": 1367,
+        "difference": 178
+      },
+      {
+        "opponent": "Wolves",
+        "before_unused": 1208,
+        "after_unused": 1377,
+        "difference": 169
+      },
+      {
+        "opponent": "Everton",
+        "before_unused": 763,
+        "after_unused": 711,
+        "difference": -52
+      },
+      {
+        "opponent": "Manchester City",
+        "before_unused": 948,
+        "after_unused": 867,
+        "difference": -81
+      },
+      {
+        "opponent": "Nottingham Forest",
+        "before_unused": 1679,
+        "after_unused": 1309,
+        "difference": -370
+      },
+      {
+        "opponent": "Arsenal",
+        "before_unused": 1186,
+        "after_unused": 626,
+        "difference": -560
+      },
+      {
+        "opponent": "Brentford",
+        "before_unused": 2262,
+        "after_unused": 1288,
+        "difference": -974
+      },
+      {
+        "opponent": "Manchester United",
+        "before_unused": 1977,
+        "after_unused": 569,
+        "difference": -1408
+      },
+      {
+        "opponent": "Bournemouth",
+        "before_unused": 2352,
+        "after_unused": 927,
+        "difference": -1425
+      }
+    ],
+    [
+      {
+        "season": "2025-26",
+        "competition": "FA Cup",
+        "unused_mean": 5556,
+        "forwarded_mean": 13220,
+        "grain": "season_competition"
+      },
+      {
+        "season": "2025-26",
+        "competition": "Carabao Cup",
+        "unused_mean": 4298,
+        "forwarded_mean": 12942,
+        "grain": "season_competition"
+      },
+      {
+        "season": "2025-26",
+        "competition": "Champions League",
+        "unused_mean": 2472,
+        "forwarded_mean": 12175,
+        "grain": "season_competition"
+      }
+    ]
+  ],
+  "verified_against_sqlite": true
+}
