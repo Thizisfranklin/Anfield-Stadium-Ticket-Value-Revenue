@@ -96,10 +96,7 @@ The frontend is static and deployment-ready. No API keys or live database are re
 
 Use [VERIFIED_PORTFOLIO_CLAIMS.md](VERIFIED_PORTFOLIO_CLAIMS.md), which separates data facts, model results, policy observations and scenarios. Example scenario: 25% successful recovery of Fulham's 2,820 unused tickets gives 705 additional supporter opportunities and 1.1505 percentage points of physical capacity, not actual uplift or revenue.
 
-## 17. Two résumé bullets
 
-- Built a reproducible Anfield ticketing analytics pipeline integrating 38 official league fixture records with public match context, relational SQL and six executed notebooks; enforced source provenance, one-to-one joins and explicit data-grain boundaries.
-- Developed an interactive React/MapLibre stadium case study with policy sensitivity analysis and labelled recovery scenarios; benchmarked three models using chronological validation on nine held-out fixtures and documented why the simple mean baseline outperformed the context model.
 
 ## 18. Files and functions to personally understand
 
@@ -114,23 +111,6 @@ Use [VERIFIED_PORTFOLIO_CLAIMS.md](VERIFIED_PORTFOLIO_CLAIMS.md), which separate
 9. `tests/test_analytics.py`: invalid-input tests, leakage mutation and source reconciliation.
 10. `docs/DATA_CONTRACT.md`: the boundary to preserve when extending the project.
 
-## 19. Fifteen interview questions
-
-1. Why is this an inventory/access project rather than a price-prediction exercise?
-2. Why doesn't physical capacity minus unused tickets equal attendance?
-3. How did you extract opponent labels rendered as crests?
-4. What checks protect the fixture join from silent duplication?
-5. How does a null forwarding value differ from zero?
-6. Why can't cup competition means become individual fixture observations?
-7. What does the source population wording change imply for season comparisons?
-8. Why can the club's GA season-ticket decline coexist with a higher broader unused-ticket mean?
-9. What confounders prevent a causal policy conclusion?
-10. What uncertainty does the opponent bootstrap measure, and what does it omit?
-11. Why is realized forwarding excluded from pre-match predictive features?
-12. How do expanding-window splits prevent temporal leakage?
-13. Why did you decide against ARIMA and a deployed future forecast?
-14. Why is a recovered unused ticket not automatically incremental revenue?
-15. Which additional measurement or experiment would most improve this project?
 
 ## 20. Recommended future improvements
 
