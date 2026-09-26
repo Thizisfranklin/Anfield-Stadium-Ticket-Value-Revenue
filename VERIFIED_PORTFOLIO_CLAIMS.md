@@ -38,6 +38,3 @@ Evidence: `reports/policy_results.json`, executed notebook 04; official 2025–2
 
 Evidence: `analysis.validation.scenario`, executed notebook 06, exported fixture scenario grid.
 
-## Claims that must not appear on a résumé
-
-Do not claim increased Liverpool revenue, reduced no-shows in practice, a causal policy effect, stand-level utilization insights, production deployment within the club, reliable future forecasts, or 90%/95% model accuracy.
