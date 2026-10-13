@@ -74,67 +74,180 @@ I've supported Liverpool since I was around five. Getting access to tickets is s
 
 **My main question:** when ticket demand is constrained, what can public data tell us about unused seats, ticket forwarding and opportunities for more supporters to attend?
 
-## Explore the website
+## Explore the Interactive Website
 
-This project isn't just a collection of notebooks. I built a connected **React application** to tell the story, from the stadium itself to fixture results, policy questions, prediction and possible next steps.
+The project includes an interactive application that connects the stadium experience with the analytical findings. It allows visitors to explore ticket utilization, fixture information, forecasting evidence, policy questions, and recovery scenarios.
 
-<table>
-<tr>
-<td width="50%"><a href="https://thizisfranklin.github.io/Anfield-Stadium-Ticket-Value-Revenue/"><img src="reports/figures/arrival-desktop.png" width="100%" alt="Interactive map arrival screen locating Anfield in Liverpool"></a><br><b>01 · Arrival</b><br>Meet the place before the numbers.</td>
-<td width="50%"><a href="https://thizisfranklin.github.io/Anfield-Stadium-Ticket-Value-Revenue/"><img src="reports/figures/stadium-desktop.png" width="100%" alt="Interactive four-stand illustration of Anfield"></a><br><b>02 · Stadium</b><br>Explore four stands and understand the limited physical inventory.</td>
-</tr>
-<tr>
-<td width="50%"><a href="https://thizisfranklin.github.io/Anfield-Stadium-Ticket-Value-Revenue/"><img src="reports/figures/matchday-desktop.png" width="100%" alt="Matchday view showing unused tickets across home fixtures"></a><br><b>03 · Matchday</b><br>Choose a season and fixture to inspect unused ticket counts.</td>
-<td width="50%"><a href="https://thizisfranklin.github.io/Anfield-Stadium-Ticket-Value-Revenue/"><img src="reports/figures/inventory-desktop.png" width="100%" alt="Ticket forwarding and exchange journey"></a><br><b>04 · Ticket journey</b><br>See where forwarding and the Ticket Exchange fit in—and what isn't measured.</td>
-</tr>
-</table>
+### Arrival and Stadium
 
-**[Open all eight interactive sections ↗](https://thizisfranklin.github.io/Anfield-Stadium-Ticket-Value-Revenue/)** — including match context, policy review, the scenario lab, model evidence and a decision centre.
+![Anfield arrival experience](reports/figures/arrival-desktop.png)
 
-## The data and what I found
+![Interactive Anfield stadium](reports/figures/stadium-desktop.png)
 
-I brought together two seasons of official Liverpool ticketing reports, plus public fixture dates and kickoff times. The validated core dataset has **38 Premier League home fixtures** (19 per season). The 2025–26 report also provides fixture-level ticket forwarding counts.
+Explore Anfield's location, its four stands, and the physical capacity that makes matchday inventory limited.
 
-| Question | What the data showed |
-| --- | --- |
-| How many published tickets went unused? | **27,845** across 2024–25 league home fixtures and **28,821** across 2025–26; around **1,500 per match** in each season |
-| How much ticket forwarding happened? | A published average of **9,926 forwarded tickets per 2025–26 home league match** |
-| Did utilization improve between seasons? | No reliable like-for-like conclusion: the reports describe different ticket populations |
-| Could a model predict unused tickets? | A simple historical-average benchmark made smaller errors than the Ridge model in this small test |
+### Matchday and Ticket Journey
 
-**A crucial distinction:** the older report refers to *all stadium tickets* while the newer one refers to *home tickets*. I haven't treated the difference between their totals as evidence that Liverpool improved or worsened.
+![Matchday ticket utilization](reports/figures/matchday-desktop.png)
 
-<p align="center"><img src="reports/figures/utilization.png" width="920" alt="Published unused tickets by home fixture and competition-level means"></p>
+![Ticket forwarding and exchange](reports/figures/inventory-desktop.png)
 
-### 1. Comparing similar opponents
+Examine published unused-ticket counts across fixtures and understand how forwarding and ticket exchange relate to supporter access.
 
-I also compared the **16 opponents** that appeared in both seasons to reduce the influence of fixture mix. Their average published unused-ticket difference was **−1.6 tickets**; a bootstrap interval ran from **−386 to +367**. It's too broad to identify a clear change, and differing source definitions remain a limitation. Liverpool separately reported a **23% reduction in empty general-admission season-ticket seats** after its Every Seat, Every Game initiative—but that is a different subgroup, not proof of an overall or causal decline.
+The complete website includes **eight interactive sections**, covering match context, policy review, forecasting, scenario modeling, and a decision centre.
 
-### 2. Testing whether machine learning helps
+[**Explore the complete interactive project ↗**](https://thizisfranklin.github.io/Anfield-Stadium-Ticket-Value-Revenue/)
 
-Using the **19 consistently defined 2025–26 fixtures**, I tested three approaches on **nine later, held-out fixtures**. All features were available before a match; later fixtures weren't used to train predictions for earlier fixtures.
+---
 
-| Forecasting approach | Average error (MAE) |
-| --- | ---: |
-| Expanding historical average | **437 tickets** |
-| Ridge regression using match context | **454 tickets** |
-| Last fixture's count | **1,110 tickets** |
+## The Data and What I Investigated
 
-The simplest approach did slightly better than Ridge in this evaluation. With such a small dataset, I wouldn't claim that a complex model is ready to forecast future matches.
+I combined official Liverpool FC ticketing reports with public fixture information, using Python for data extraction, cleaning, and validation, and SQL for querying structured records.
 
-<p align="center"><img src="reports/figures/model-desktop.png" width="920" alt="Interactive model-evidence view comparing a historical average, Ridge regression and last-match benchmark"></p>
+The analysis focused on three connected questions.
 
-### 3. What could unused seats mean for supporters?
+### 1. How Does Ticket Utilization Vary Across Matches?
 
-Rather than call every unused ticket “lost revenue”—many were already sold—I built an interactive **what-if scenario**. Fulham's 2025–26 fixture had **2,820 published unused tickets**. If a hypothetical process successfully recovered and used 25% of those tickets, that would mean **705 additional supporter opportunities**. This is an illustration, **not an observed result or a forecast**.
+The published reports recorded the following unused-ticket counts:
 
-<p align="center"><img src="reports/figures/scenario-desktop.png" width="920" alt="Interactive policy lab showing hypothetical ticket recovery scenarios"></p>
+| Season | Unused tickets | Average per home match |
+|---|---:|---:|
+| 2024–25 | 27,845 | 1,466 |
+| 2025–26 | 28,821 | 1,517 |
 
-## Where this could go next
+These figures provide an indication of unused ticket inventory but cannot establish a reliable season-to-season change because the two reports refer to different ticket populations.
 
-The biggest gap isn't another model: it's what public reports can't show. To understand whether redistribution really works, the club would need to follow a ticket from **allocation → forwarding or exchange → new holder → stadium entry**. With that information, controlled tests of reminders or return policies could measure actual gains in supporter access.
+![Published unused tickets by fixture](reports/figures/utilization.png)
 
-The analysis deliberately **does not** invent stand-level unused seats, use today's prices as historical revenue, or treat policy changes as proven causes. For the full methods, sources and checks, see [data provenance](DATA_PROVENANCE.md), [reproduction steps](docs/REPRODUCTION.md) and [verified project claims](VERIFIED_PORTFOLIO_CLAIMS.md).
+I also compared **16 opponents appearing in both seasons** to investigate whether fixture composition might explain differences.
+
+The average published difference was approximately −1.6 unused tickets per match, with substantial statistical uncertainty. The result does not provide convincing evidence of a change in overall utilization.
+
+Liverpool separately reported a **23% reduction in empty general-admission season-ticket seats** following its *Every Seat, Every Game* initiative. However, this is a club-reported result for a particular ticket category, not an independently established causal effect across the entire stadium.
+
+### 2. Can We Predict Unused Tickets Before Matchday?
+
+To investigate whether match context could improve forecasting, I evaluated three approaches using 19 consistently defined fixtures from the 2025–26 season, including nine later held-out matches.
+
+| Forecasting method | Average error (MAE) |
+|---|---:|
+| Historical-average benchmark | **437 tickets** |
+| Ridge regression | **454 tickets** |
+| Previous-fixture benchmark | **1,110 tickets** |
+
+The simplest historical-average approach slightly outperformed Ridge regression.
+
+![Forecasting model comparison](reports/figures/model-desktop.png)
+
+This illustrates an important finding: **more complex machine learning does not automatically produce better predictions**.
+
+With a limited number of consistently defined fixtures, the current forecasting results should be treated as exploratory rather than deployment-ready.
+
+A larger historical dataset and additional relevant information may help establish whether more sophisticated approaches provide meaningful improvements.
+
+### 3. What Could Ticket Recovery Mean for Supporters?
+
+Forecasting unused tickets is only useful if it can eventually support better decisions.
+
+To explore the potential importance of redistribution, I developed an interactive scenario model.
+
+For one home fixture against Fulham, Liverpool reported **2,820 unused tickets**.
+
+If a hypothetical process successfully recovered and used 25% of those tickets, it would create **705 additional supporter opportunities**, leaving 2,115 tickets unused.
+
+![Ticket-recovery scenario](reports/figures/scenario-desktop.png)
+
+This is an illustrative calculation, not a forecast or a measured outcome.
+
+The scenario highlights why a club might want to understand not only how many tickets go unused, but also how early tickets are returned and whether redistribution results in actual attendance.
+
+---
+
+## What the Findings Mean
+
+The research demonstrates that unused-ticket counts alone cannot fully explain matchday utilization.
+
+A club might know how many tickets were allocated, how many were forwarded, and how many went unused, but those measurements do not necessarily reveal which policies create additional attendance.
+
+Better decision-making would require information about ticket-return timing, successful transfers, and actual stadium entry.
+
+**The main contribution of Anfield Matchday Intelligence is an evidence-based investigation of ticket utilization, forecasting limitations, and the information needed to evaluate potential improvements in supporter access.**
+
+---
+
+## Data Availability and Research Limitations
+
+The project relies entirely on publicly available information rather than Liverpool FC's internal operational systems.
+
+This creates several important limitations:
+
+- **Operational data:** The available reports do not provide complete ticket-level records linking allocation, forwarding, exchange, and stadium entry.
+- **Historical consistency:** The two seasons use different ticketing definitions, restricting direct comparisons.
+- **Forecasting:** Only 19 consistently defined fixtures were available for the forecasting experiment, limiting conclusions about future predictive performance.
+- **Financial outcomes:** Unused tickets cannot automatically be considered lost revenue because many may already have been sold. Detailed financial and behavioral information would be necessary to estimate economic effects.
+
+These limitations are important because they define what the current evidence can establish and what additional information would be necessary for stronger operational conclusions.
+
+Rather than inventing unavailable information, the project identifies the data needed to move from descriptive analysis toward evaluating real improvements.
+
+---
+
+## Future Research and Development
+
+Anfield Matchday Intelligence provides a foundation for several possible extensions.
+
+### Improving Matchday Forecasting
+
+Investigate whether additional historical ticketing records and external variables, such as weather, fixture scheduling, holidays, and transport conditions, improve unused-ticket predictions.
+
+More advanced time-series and machine learning approaches, potentially including LSTM, could be evaluated if sufficient consistently defined data becomes available.
+
+The priority would be reliable forecasting rather than model complexity alone.
+
+### Understanding Ticket Redistribution
+
+With more detailed records, future research could investigate how ticket-return timing, forwarding, and exchange activity influence actual stadium attendance.
+
+It could also examine which reminder or redistribution strategies result in more supporters using available tickets.
+
+### Examining the Wider Matchday Economy
+
+A potential extension is to study the relationship between Liverpool home fixtures and economic activity around Anfield.
+
+This could involve public transport demand, tourism, hospitality, and other local business indicators.
+
+The research would investigate associations between fixtures and surrounding activity without assuming that matchdays—or filling additional seats—automatically cause measurable economic gains.
+
+### Connecting Forecasts to Decisions
+
+A longer-term direction is to combine forecasting estimates, recovery scenarios, and uncertainty into a more comprehensive decision-support framework.
+
+The aim would be to investigate how different ticketing strategies could affect supporter-access outcomes, provided sufficient data becomes available.
+
+**The long-term goal is not simply to predict unused tickets more accurately, but to better understand how data can support decisions that create more opportunities for supporters to attend matches.**
+
+---
+
+## Tools and Reproduction
+
+| Area | Technologies |
+|---|---|
+| Data analysis | Python, pandas, Jupyter |
+| Database querying | SQL, SQLite, PostgreSQL |
+| Statistical modeling | scikit-learn, Ridge regression, forecasting baselines |
+| Interactive application | React, Vite, Recharts, MapLibre |
+| Testing | pytest, Playwright, GitHub Actions |
+
+Supporting documentation:
+
+- [Data Provenance](DATA_PROVENANCE.md)
+- [Reproduction Guide](docs/REPRODUCTION.md)
+- [Verified Project Claims](VERIFIED_PORTFOLIO_CLAIMS.md)
+- [Analysis Notebooks](notebooks)
+
+---
+
+*Anfield Matchday Intelligence is an independent educational project, not affiliated with or endorsed by Liverpool FC. Club photography and imagery are linked from official sources for context. All rights remain with their respective owners.*
 
 **Built with:** Python, pandas, SQL (SQLite and PostgreSQL), scikit-learn, Jupyter, React, Vite, Recharts and MapLibre. Tested using pytest, Playwright and GitHub Actions.
 
