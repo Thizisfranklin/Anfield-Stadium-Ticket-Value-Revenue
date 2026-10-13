@@ -6,10 +6,37 @@
 
 <p align="center"><a href="https://thizisfranklin.github.io/Anfield-Stadium-Ticket-Value-Revenue/"><strong>Explore the live interactive project ↗</strong></a></p>
 
-**A sold-out stadium. An unused ticket. Someone still trying to get in.** That's the question behind this project: how can a football club make better use of its limited ticket inventory so more supporters have a chance to attend?
+**A sold-out stadium. An unused ticket. Someone still trying to get in.**
 
-I built this as an independent Liverpool FC case study using public club reports, Python, SQL, statistical analysis and an interactive React website. It is not affiliated with Liverpool FC.
+Liverpool FC plays in one of football's most in-demand stadiums, yet thousands of allocated tickets go unused across a Premier League season. For supporters struggling to secure tickets, this raises an important question: **How can better analysis of ticket utilization, forwarding, and matchday patterns help identify opportunities to improve stadium attendance and supporter access?**
 
+**Anfield Matchday Intelligence** is an independent sports analytics project investigating this question using publicly available Liverpool FC ticketing reports from the **2024–25 and 2025–26 Premier League seasons**.
+
+Using Python, SQL, and statistical analysis, I combined official ticketing records with fixture information to investigate unused tickets, examine redistribution patterns, evaluate forecasting approaches, and model hypothetical ticket-recovery scenarios.
+
+The findings are presented through an interactive React application that connects the analysis with practical questions around matchday operations and supporter access.
+
+## What the Analysis Revealed
+
+The analysis covered **38 Premier League home fixtures across two seasons**, producing four key findings:
+
+- **Unused Ticket Inventory:** Liverpool reported **27,845 unused tickets in 2024–25** and **28,821 in 2025–26**, averaging approximately 1,500 per home match in each season. Differences in reporting definitions prevent a reliable direct comparison between seasons.
+
+- **Ticket Redistribution:** An average of approximately **9,926 tickets were forwarded per Premier League home match in 2025–26**, highlighting the scale of ticket movement between supporters without establishing how many transfers resulted in attendance.
+
+- **Forecasting Performance:** A simple historical-average benchmark achieved an average error of **437 tickets**, slightly outperforming Ridge regression at **454 tickets** across nine held-out fixtures. The results demonstrate that more complex models do not necessarily improve predictions, particularly when historical data is limited.
+
+- **Supporter Access Scenarios:** A hypothetical successful recovery of **25% of the 2,820 unused tickets** recorded for one Fulham fixture would represent **705 additional supporter opportunities**. This illustrates a possible redistribution outcome, not an observed improvement or a validated forecast.
+
+### The Main Takeaway
+
+The analysis highlights an important distinction between **tickets being allocated or transferred and supporters actually entering the stadium**.
+
+Although Liverpool's public reports provide valuable information about unused tickets and forwarding activity, they do not reveal the complete journey of an individual ticket—from allocation through redistribution to actual stadium entry.
+
+**Improving supporter access requires more than predicting unused tickets. It requires understanding whether available tickets can be redistributed in time and successfully used by other supporters.**
+
+The project establishes what can be learned from publicly available ticketing data, evaluates the limitations of current forecasting approaches, and identifies the additional information needed to assess potential improvements in matchday utilization and supporter access.
 ## New to football (soccer)? Here's the context
 
 Liverpool FC plays in the **Premier League**, England's top football division. Its home, **Anfield**, has a published physical capacity of **61,276 seats**. For many matches, demand is high, but a ticket that was already allocated or sold can still go unused. Supporters who cannot attend may be able to **forward** a ticket to another person or use the club's **Ticket Exchange**. Neither action necessarily tells us whether someone ultimately enters the stadium.
